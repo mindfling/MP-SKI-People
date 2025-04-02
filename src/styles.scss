@@ -1,8 +1,28 @@
-@use "styles/default.scss";
-@use "styles/fonts.scss";
-
+@use "styles/default";
+@use "styles/fonts";
 
 .page {
-  background: dimgray;
+  background-color: gray;
 }
 
+
+.header {
+  display: block;
+  height: 100px;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 2px solid darkgray;
+  }
+
+  &__link {
+    display: flex;
+  }
+
+  &__links-list {
+    display: flex;
+  }
+}
