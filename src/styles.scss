@@ -1,5 +1,7 @@
 @use "normalize.css";
-@use "default.scss";
+@use "styles/default.scss";
+@use "styles/fonts.scss";
+
 
 .page {
   background: dimgray;
