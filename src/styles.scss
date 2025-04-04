@@ -1,7 +1,6 @@
 @use "styles/default";
 @use "styles/fonts";
 @use "styles/header";
-
-.page {
-  background-color: #dfdfdf;
-}
+@use "styles/footer";
+// @use "styles/vars";
+// @import 'styles/vars';
