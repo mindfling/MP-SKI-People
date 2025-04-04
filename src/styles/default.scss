@@ -77,20 +77,20 @@ ul {
 .container {
   display: flex;
   padding: 0 16px;
-  // border: 1px solid lawngreen;
+  border: 1px solid lawngreen;
   
   @media (min-width: 768px) {
     padding: 0 29px;
-    // border: 1px solid orange;
+    border: 1px solid orange;
   }
   
   @media (min-width: 1024px) {
     padding: 0 43px;
-    // border: 1px solid violet;
+    border: 1px solid violet;
   }
 
   @media (min-width: 1440px) {
     padding: 0 92px;
-    // border: 1px solid red; 
+    border: 1px solid red; 
   }
 }
