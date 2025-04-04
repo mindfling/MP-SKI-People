@@ -1,28 +1,7 @@
 @use "styles/default";
 @use "styles/fonts";
+@use "styles/header";
 
 .page {
   background-color: gray;
-}
-
-
-.header {
-  display: block;
-  height: 100px;
-
-  &__wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    border-bottom: 2px solid darkgray;
-  }
-
-  &__link {
-    display: flex;
-  }
-
-  &__links-list {
-    display: flex;
-  }
 }

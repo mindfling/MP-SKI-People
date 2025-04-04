@@ -1,0 +1,83 @@
+// do it in mobile first
+.header {
+  padding: 18px 0;
+
+  &__wrapper {
+    display: grid;
+    grid-template-areas: 'logo links'
+    'search search';
+    gap: 17px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eeeff2;
+
+    @media (min-width: 1024px) {
+      grid-template-areas: 'logo search links';
+    }
+  }
+
+  &__logo-link {
+    grid-area: 'logo';
+  }
+
+  &__logo-image {
+    width: 106px;
+
+    @media (min-width: 768px) {
+      width: 130px;
+    }
+  }
+
+  .logo {
+  }
+
+  &__search {
+    grid-area: 'search';
+    position: relative;
+    width: 100%;
+    height: 38px;
+
+    @media (min-width: 768px) {
+      width: 408px;
+    }
+
+    @media (min-width: 1024px) {
+      width: 514px;
+    }
+  }
+
+  &__search-input {
+    width: 100%;
+    height: 100%;
+    padding: 0 45px 0 24px;
+    background-color: #eeeff2;
+    border-radius: 32px;
+    border: none;
+
+    &::placeholder {
+      color: #969eae;
+    }
+  }
+
+  &__search-button {
+    display: block;
+    position: absolute;
+    content: ''; // ! такого не бывает
+    right: 24px;
+    top: 50%;
+    transform: translateY((-50%));
+    width: 16px;
+    height: 16px;
+  }
+
+  &__links-list {
+  }
+
+  &__link {
+  }
+
+  &__link-text {
+  }
+
+  &__link-count {
+  }
+}
