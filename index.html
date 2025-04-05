@@ -54,90 +54,99 @@
       </div>
     </header>
 
-    <!-- КАТАЛОГ ВЫБОР ТОВАРОВ -->
-    <div class="catalog">
-      <div class="container">
-        <ul class="catalog__list">
-          <li class="catalog__item">
-            <a class="catalog__link catalog__link_blue" href="#" title="Отобразить все категории товаров">Все</a>
-          </li>
-          <li class="catalog__item">
-            <a class="catalog__link" href="#skis" title="Отобразить товары из категории лыжи">Лыжи</a>
-          </li>
-          <li class="catalog__item">
-            <a class="catalog__link" href="#snowboards" title="Отобразить товары из категории сноуборды">Сноуборды</a>
-          </li>
-          <li class="catalog__item">
-            <a class="catalog__link" href="#equipment" title="Отобразить товары из категории экипировка">Экипировка</a>
-          </li>
-          <li class="catalog__item">
-            <a class="catalog__link" href="#boots" title="Отобразить товары из категории ботинки">Ботинки</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    
-    <!-- ХЛЕБНЫЕ КРОШКИ -->
-    <div class="breadcrumb">
-      <div class="container">
-        <nav class="breadcrumb__navigation">
-          <ul class="breadcrumb__list">
-            <li class="breadcrumb__item">
-              <a class="breadcrumb__link" href="#">Главная</a>
+
+    <main class="main">
+      <!-- КАТАЛОГ ВЫБОР ТОВАРОВ -->
+      <div class="catalog">
+        <div class="container">
+          <ul class="catalog__list">
+            <li class="catalog__item">
+              <a class="catalog__link catalog__link_blue" href="#" title="Отобразить все категории товаров">Все</a>
             </li>
-            <span>&#62;</span>
-            <li class="breadcrumb__item">
-              <a class="breadcrumb__link" href="#">Лыжи</a>
+            <li class="catalog__item">
+              <a class="catalog__link" href="#skis" title="Отобразить товары из категории лыжи">Лыжи</a>
             </li>
-            <span>&gt;</span>
-            <li class="breadcrumb__item">
-              <a class="breadcrumb__link" href="#">Горные лыжи</a>
+            <li class="catalog__item">
+              <a class="catalog__link" href="#snowboards" title="Отобразить товары из категории сноуборды">Сноуборды</a>
+            </li>
+            <li class="catalog__item">
+              <a class="catalog__link" href="#equipment" title="Отобразить товары из категории экипировка">Экипировка</a>
+            </li>
+            <li class="catalog__item">
+              <a class="catalog__link" href="#boots" title="Отобразить товары из категории ботинки">Ботинки</a>
             </li>
           </ul>
-        </nav>
+        </div>
       </div>
-    </div>
+      
+      <!-- ХЛЕБНЫЕ КРОШКИ -->
+      <div class="breadcrumb">
+        <div class="container">
+          <nav class="breadcrumb__navigation">
+            <ul class="breadcrumb__list">
+              <li class="breadcrumb__item">
+                <a class="breadcrumb__link" href="#">Главная</a>
+              </li>
+              <span>&#62;</span>
+              <li class="breadcrumb__item">
+                <a class="breadcrumb__link" href="#">Лыжи</a>
+              </li>
+              <span>&gt;</span>
+              <li class="breadcrumb__item">
+                <a class="breadcrumb__link" href="#">Горные лыжи</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
 
-    <!-- ТОВАРЫ -->
-    <section class="goods">
-      <div class="container">
-        <h2 class="goods__title">Избранное</h2>
-        <ul class="goods__list">
-          <li class="goods__item">
-            <article class="goods__card card">
-              <a class="card__link" href="#">
-                <img class="card__image" src="/img/products/ski-blue.png" alt="товар лыжи">
-              </a>
-              <button class="card__like-button">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z" fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>                  
-              </button>
-              <h3 class="card__title">Горные лыжи</h3>
-              <p class="card__price">5000р</p>
-              <button class="card__button">В корзину</button>
-            </article>
-          </li>
+      <!-- ТОВАРЫ -->
+      <section class="goods">
+        <div class="container">
+          <h2 class="goods__title">Избранное</h2>
+          <ul class="goods__list">
+            <li class="goods__item">
+              <article class="goods__card card">
+                <a class="card__link" href="#">
+                  <img class="card__image" src="/public/img/products/ski-blue.png" alt="товар лыжи">
+                </a>
+                <button class="card__like-button">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z" fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>                  
+                </button>
+                <h3 class="card__title">Горные лыжи</h3>
+                <p class="card__price">5000р</p>
+                <button class="card__button">В корзину</button>
+              </article>
+            </li>
+            
+            <li class="goods__item">
+              <article class="goods__card card">
+                <a class="card__link" href="#">
+                  <img class="card__image" src="/public/img/products/ski-mount.png" alt="товар лыжи">
+                </a>
+                <button class="card__like-button">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z" fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>                  
+                </button>
+                <h3 class="card__title">Горные лыжи</h3>
+                <p class="card__price">5000р</p>
+                <button class="card__button">В корзину</button>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+      
+      <!-- КОРЗИНА CART -->
+      <section class="cart">
+        <div class="container">
           
-          <li class="goods__item">
-            <article class="goods__card card">
-              <a class="card__link" href="#">
-                <img class="card__image" src="/public/img/products/ski-mount.png" alt="товар лыжи">
-              </a>
-              <button class="card__like-button">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z" fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>                  
-              </button>
-              <h3 class="card__title">Горные лыжи</h3>
-              <p class="card__price">5000р</p>
-              <button class="card__button">В корзину</button>
-            </article>
-          </li>
-          
-        </ul>
-      </div>
-    </section>
+        </div>
+      </section>
+    </main>
 
 
     <!-- FOOTER -->
@@ -163,6 +172,7 @@
                 </svg>
               </a>
             </li>
+
             <li class="footer__social-item">
               <a class="footer__social-link" href="#">
                 <svg class="social__icon-yt" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -170,11 +180,12 @@
                 </svg>
               </a>
             </li>
+
             <li class="footer__social-item">
               <a class="footer__social-link" href="#">
                 <svg class="social__icon-tg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12ZM12.4305 8.859C11.2635 9.345 8.9295 10.35 5.4315 11.874C4.8645 12.099 4.566 12.321 4.539 12.537C4.494 12.9015 4.9515 13.0455 5.574 13.242L5.8365 13.3245C6.4485 13.524 7.2735 13.7565 7.701 13.7655C8.091 13.7745 8.5245 13.6155 9.003 13.2855C12.2715 11.079 13.959 9.9645 14.064 9.9405C14.139 9.9225 14.244 9.9015 14.313 9.9645C14.3835 10.026 14.376 10.1445 14.3685 10.176C14.3235 10.3695 12.528 12.0375 11.5995 12.9015C11.31 13.1715 11.1045 13.362 11.0625 13.4055C10.97 13.5 10.876 13.593 10.7805 13.6845C10.2105 14.2335 9.7845 14.6445 10.803 15.3165C11.2935 15.6405 11.6865 15.906 12.078 16.173C12.504 16.464 12.93 16.7535 13.482 17.1165C13.6215 17.2065 13.7565 17.304 13.887 17.397C14.3835 17.751 14.832 18.069 15.3825 18.018C15.7035 17.988 16.035 17.688 16.203 16.788C16.6005 14.6625 17.382 10.059 17.562 8.1615C17.573 8.00376 17.5664 7.84529 17.5425 7.689C17.5284 7.56288 17.4673 7.44669 17.3715 7.3635C17.235 7.26928 17.0723 7.22047 16.9065 7.224C16.4565 7.2315 15.762 7.473 12.4305 8.859Z" fill="white"/>
-                </svg>                  
+                </svg>
               </a>
             </li>
           </ul>
@@ -202,9 +213,7 @@
         </ul>
 
         <p class="footer__copyright">&copy;&nbsp;SKI-People,&nbsp;2025</p>
-
       </div>
     </div>
-
   </body>
 </html>
