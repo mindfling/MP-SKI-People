@@ -1,7 +1,8 @@
+@import 'vars';
+
 // do it in mobile first
 .header {
   padding: 18px 0;
-  border: 1px solid ;
 
   &__wrapper {
     width: 100%;
@@ -13,7 +14,7 @@
     align-items: center;
     gap: 17px;
     padding-bottom: 16px;
-    border-bottom: 1px solid #eeeff2;
+    border-bottom: 1px solid $lightgrey;
 
     @media (min-width: 1024px) {
       grid-template-areas:
@@ -33,8 +34,8 @@
     }
   }
 
-  .logo {
-  }
+  // .logo {
+  // }
 
   &__search {
     grid-area: search;
@@ -55,12 +56,23 @@
     width: 100%;
     height: 100%;
     padding: 0 45px 0 24px;
-    background-color: #eeeff2;
+    background-color: $lightgrey;
     border-radius: 32px;
-    border: none;
+    // border: none;
+    border: 1px solid transparent;
+    outline: 1px solid transparent;
+    color: $black;
+
+    &:hover {
+      border: 1px solid #dfe3eb;
+    }
+
+    &:focus {
+      outline: 1px solid #dfe3eb;
+    }
 
     &::placeholder {
-      color: #969eae;
+      color: $grey;
     }
   }
 
@@ -73,6 +85,14 @@
     translate: 0 -50%;
     width: 16px;
     height: 16px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    outline: 1px solid transparent;
+
+    &:focus {
+      outline: 1px solid #dfe3eb;
+      outline-offset: 5px;
+    }
   }
 
   &__links-list {
@@ -90,6 +110,18 @@
     align-items: center;
     column-gap: 4px;
     flex-direction: row-reverse;
+    border: 1px solid transparent;
+    outline: 1px solid transparent;
+    opacity: 1;
+
+    &:hover {
+      opacity: .8;
+    }
+
+    &:focus {
+      outline: 1px solid #dfe3eb;
+      outline-offset: 2px;
+    }
 
     @media (min-width: 768px) {
       flex-direction: row;
@@ -104,6 +136,6 @@
     }
   }
 
-  &__link-count {
-  }
+  // &__link-count {
+  // }
 }
