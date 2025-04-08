@@ -1,0 +1,48 @@
+@import 'vars';
+
+.catalog {
+  overflow-x: hidden;
+  padding-bottom: 20px;
+  
+  display: flex;
+  
+  @media (min-width: 768px) {
+    padding-bottom: 32px;
+  }
+  
+  @media (min-width: 1024px) {
+    padding-bottom: 40px;
+  }
+  
+  &__list {
+    display: flex;
+    gap: 4px;
+  }
+  
+  &__item {
+  }
+  
+  &__link {
+    display: block;
+    color: $grey;
+    background-color: $lightgrey;
+    border: 1px solid $lightgrey;
+    padding: 11px 14px 13px;
+    border-radius: 32px;
+    align-content: center;
+    
+    &:hover {
+      color: $blue;
+      border: 1px solid $blue;
+    }
+    
+    &_active {
+      color: $white;
+      background-color: $blue;
+      border: 1px solid $blue;
+    }
+  }
+  
+  
+  border: 1px solid lawngreen;
+}
