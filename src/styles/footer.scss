@@ -1,16 +1,12 @@
 @import 'vars';
 
 .footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   background-color: $black;
   color: $white;
   padding: 40px 0;
   
   &__container {
-    width: 100%;
+    // width: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -18,6 +14,11 @@
 
     @media (min-width: 768px) {
       flex-direction: row;
+      justify-content: space-around;
+      align-items: end;
+    }
+
+    @media (min-width: 1440px) {
       justify-content: space-between;
       align-items: end;
     }
@@ -30,7 +31,7 @@
       flex-grow: 1;
       flex-basis: 100%;
       justify-items: center;
-      align-items: center;
+      // align-items: center;
     }
   }
   
@@ -74,7 +75,6 @@
   &__developer-list {
     display: flex;
     justify-content: end;
-    align-items: start;
     flex-direction: column;
     gap: 8px;
     color: $devgrey;
@@ -106,5 +106,11 @@
 
 .footer  * {
   outline: 1px solid lawngreen;
+  
+  @media (width > 1440px) {
+    outline: 1px solid orange;
+  }
+
   outline-offset: -1px;
 }
+
