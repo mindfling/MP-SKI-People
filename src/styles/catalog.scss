@@ -1,7 +1,8 @@
 @import 'vars';
 
 .catalog {
-  overflow-x: hidden;
+  // на мобильном экране кнопки выезжают вправо за экран
+  // overflow-x: hidden;
   padding-bottom: 20px;
   
   display: flex;
@@ -20,6 +21,7 @@
   }
   
   &__item {
+    display: block;
   }
   
   &__link {
@@ -36,6 +38,13 @@
       border: 1px solid $blue;
     }
     
+    &:focus {
+      color: $bluetab;
+      outline: 1px solid $bluetab;
+      outline-offset: -1px;
+    }
+    
+    &_active:hover,
     &_active {
       color: $white;
       background-color: $blue;
@@ -43,6 +52,4 @@
     }
   }
   
-  
-  border: 1px solid lawngreen;
 }
