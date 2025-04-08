@@ -1,0 +1,16 @@
+
+/** DEBUG */
+.footer {
+  border: 1px solid orangered;
+}
+
+.footer  * {
+  outline: 1px solid lawngreen;
+  
+  @media (width > 1440px) {
+    outline: 1px solid orange;
+  }
+
+  outline-offset: -1px;
+}
+

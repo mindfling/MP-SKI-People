@@ -55,7 +55,7 @@
       gap: 8px;
       // margin-bottom: 16px;
     }
-
+    // вместо margin-bottom: 16px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -89,28 +89,10 @@
     justify-content: end;
     align-items: start;
     flex-direction: column;
-    color: #F1E9E4;
+    color: $devgrey;
 
     @media (min-width: 768px) {
       order: 2;
     }
   }
 }
-
-
-
-/** DEBUG */
-.footer {
-  border: 1px solid orangered;
-}
-
-.footer  * {
-  outline: 1px solid lawngreen;
-  
-  @media (width > 1440px) {
-    outline: 1px solid orange;
-  }
-
-  outline-offset: -1px;
-}
-
