@@ -32,19 +32,16 @@
   }
   
   &__item {
-    // position: relative;
     display: flex;
     font-weight: 400;
     font-size: 12px;
     line-height: 1.2;
     color: $grey;
-    // gap: 9px;
 
     &::after {
       display: block;
-      // position: absolute;
-      content: '\003E';
-      // transform: translateX(9px);
+      // symbol $gt;
+      content: '\003E'; 
       translate: 10px;
     }
     &:last-child:after {
@@ -59,8 +56,4 @@
       opacity: .8;
     }
   }
-
-  &__divider_greater {
-  }
-
 }
