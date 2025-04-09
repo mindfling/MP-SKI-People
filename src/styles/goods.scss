@@ -1,0 +1,123 @@
+@use 'colors' as colors;
+
+
+.goods {
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__title {
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 24px;
+    color: colors.$black;
+
+    @media (min-width: 768px) {
+      font-size: 32px;
+      margin-bottom: 32px;
+    }
+
+    @media (min-width: 1024px) {
+      margin-bottom: 40px;
+    }
+  }
+
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    justify-content: space-around;
+    gap: 25px;
+  }
+
+  &__item {
+
+  }
+
+  &__card {  }
+}
+
+
+
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__link {
+    margin-bottom: 12px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 19px;
+    }
+
+    @media (min-width: 1024px) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  &__like-button {
+    position: absolute;
+    // content: '';
+    top: 12px;
+    right: 12px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+    gap: 18px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 37px;
+    }
+
+    @media (min-width: 1024px) {
+      margin-bottom: 18px;
+    }
+    
+    &-title {
+      font-size: 12px;
+
+      @media (min-width: 768px) {
+        font-size: 16px;
+      }
+    }
+    
+    &-price {
+      font-size: 16px;
+      
+      @media (min-width: 768px) {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__button {
+    border: 1px solid colors.$blue;
+    border-radius: 32px;
+    padding: 12px 24px;
+    
+    &:hover {
+      border: 1px solid colors.$blue;
+      background-color: colors.$blue;
+      color: colors.$white;
+    }
+  }
+}
