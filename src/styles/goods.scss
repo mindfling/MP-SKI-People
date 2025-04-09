@@ -2,6 +2,11 @@
 
 
 .goods {
+  padding: 40px 0;
+
+  @media (min-width: 768px) {
+    padding: 60px 0;
+  }
 
   &__container {
     display: flex;
@@ -30,27 +35,19 @@
   &__list {
     display: grid;
     gap: 32px 8px;
-    grid-template-columns: repeat(2, 140px);
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
 
     @media (min-width: 768px) {
       gap: 32px 10px;
-      grid-template-columns: repeat(3, 230px);
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     }
 
     @media (min-width: 1024px) {
       gap: 40px 16px;
-      grid-template-columns: repeat(4, 302px);
+      grid-template-columns: repeat(auto-fit, minmax(302px, 1fr));
     }
   }
-
-  &__item {
-
-  }
-
-  &__card {  }
 }
-
-
 
 
 .card {
@@ -74,6 +71,12 @@
     width: 100%;
     object-fit: cover;
     border-radius: 16px;
+    scale: 1;
+    transition: scale 400ms ease;
+
+    &:hover {
+      scale: 1.07;
+    }
   }
 
   &__like-button {
