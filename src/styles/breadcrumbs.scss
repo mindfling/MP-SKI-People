@@ -1,4 +1,5 @@
-@import 'vars';
+@use 'colors' as colors;
+
 
 .breadcrumb {
   display: flex;
@@ -36,11 +37,11 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 1.2;
-    color: $grey;
+    color: colors.$grey;
 
     &::after {
       display: block;
-      // symbol $gt;
+      // symbol colors.$gt;
       content: '\003E'; 
       translate: 10px;
     }

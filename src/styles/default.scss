@@ -1,4 +1,4 @@
-@import 'vars';
+@use 'colors' as colors;
 
 :root {
   position: relative;
@@ -7,7 +7,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: #00000000;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -25,8 +25,8 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   line-height: 1.2;
-  color: $black;
-  background-color: $white;
+  color: colors.$black;
+  background-color: colors.$white;
   display: flex;
   flex-direction: column;
 }
@@ -72,6 +72,7 @@ ul {
 
 .visually-hidden {
   position: fixed;
+  scale: 10;
   transform: scale(0);
 }
 
@@ -79,26 +80,22 @@ ul {
 .container {
   display: flex;
   padding: 0 16px;
-  // border: 1px solid lawngreen;
   
   @media (min-width: 768px) {
     padding: 0 29px;
-    // border: 1px solid orange;
   }
   
   @media (min-width: 1024px) {
     padding: 0 43px;
-    // border: 1px solid violet;
   }
 
   @media (min-width: 1440px) {
     padding: 0 92px;
-    // border: 1px solid red; 
   }
 }
 
 
 ::selection {
-  background-color: $grey;
-  color: $white;
+  background-color: colors.$grey;
+  color: colors.$white;
 }
