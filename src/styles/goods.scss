@@ -28,12 +28,19 @@
 
 
   &__list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    justify-content: space-around;
-    gap: 25px;
+    display: grid;
+    gap: 32px 8px;
+    grid-template-columns: repeat(2, 140px);
+
+    @media (min-width: 768px) {
+      gap: 32px 10px;
+      grid-template-columns: repeat(3, 230px);
+    }
+
+    @media (min-width: 1024px) {
+      gap: 40px 16px;
+      grid-template-columns: repeat(4, 302px);
+    }
   }
 
   &__item {
