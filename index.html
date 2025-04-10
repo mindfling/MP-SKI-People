@@ -236,45 +236,49 @@
             <h3 class="product__info-title">Общие характеристики</h3>
             
             <table class="product__table">
-              <tr class="product__table-row">
-                <td class="product__table-item">Коллекция</td>
-                <td class="product__table-item">Snow</td>
-              </tr>
-              
-              <tr class="product__table-row">
-                <td class="product__table-item">Производитель</td>
-                <td class="product__table-item">Россия</td>
-              </tr>
-
-              <tr class="product__table-row">
-                <td class="product__table-item">Гарантия</td>
-                <td class="product__table-item">1 год</td>
-              </tr>
-              <tr class="product__table-row">
-                <td class="product__table-item">Срок службы</td>
-                <td class="product__table-item">5 лет</td>
-              </tr>
-              <tr class="product__table-row">
-                <td class="product__table-item">Цвет</td>
-                <td class="product__table-item">Синий</td>
-              </tr>
-              <tr class="product__table-row">
-                <td class="product__table-item">Макс нагрузка</td>
-                <td class="product__table-item">130 кг</td>
-              </tr>
+              <tbody class="product__table-body">
+                <tr class="product__table-row">
+                  <td class="product__table-item">Коллекция</td>
+                  <td class="product__table-item">Snow</td>
+                </tr>
+                
+                <tr class="product__table-row">
+                  <td class="product__table-item">Производитель</td>
+                  <td class="product__table-item">Россия</td>
+                </tr>
+                
+                <tr class="product__table-row">
+                  <td class="product__table-item">Гарантия</td>
+                  <td class="product__table-item">1 год</td>
+                </tr>
+                <tr class="product__table-row">
+                  <td class="product__table-item">Срок службы</td>
+                  <td class="product__table-item">5 лет</td>
+                </tr>
+                <tr class="product__table-row">
+                  <td class="product__table-item">Цвет</td>
+                  <td class="product__table-item">Синий</td>
+                </tr>
+                <tr class="product__table-row">
+                  <td class="product__table-item">Макс нагрузка</td>
+                  <td class="product__table-item">130 кг</td>
+                </tr>
+              </tbody>
             </table>
             
-            <button class="product__button" type="button">В корзину</button>
-            <button class="product__like-button">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z" fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
+            <div class="product__buttons">
+              <button class="product__button" type="button">В корзину</button>
+              <button class="product__like-button">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z" fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
           </div>
           
           <div class="product__description">
 
-            </div>
+          </div>
       </section>
 
       
@@ -295,7 +299,7 @@
               <p class="cart__item-id">арт.&nbsp;84348945757</p>
               <div class="input__item-counter counter">
                 <button class="counter__button counter__minus" type="button">&minus;</button>
-                <p class="counter__number">1&nbsp;шт.</p>
+                <p class="counter__number">1</p>
                 <button class="counter__button counter__plus" type="button">&plus;</button>
               </div>
             </li>
@@ -355,14 +359,15 @@
           <form action="#" id="cartForm" class="cart__form" method="POST">
             <h3 class="cart__form-title">Данные для доставки</h3>
             <fieldset class="cart__form-inputs">
-              <input type="text" name="name" class="cart__form-input" />
-              <input type="tel" name="tel" class="cart__form-input" />
-              <input type="email" name="email" class="cart__form-input" />
-              <input type="text" name="address" class="cart__form-input" />
+              <input type="text" name="name" class="cart__form-input" placeholder="Фамилия Имя Отчество" />
+              <input type="tel" name="tel" class="cart__form-input" placeholder="Телефон" />
+              <input type="email" name="email" class="cart__form-input" placeholder="E-mail" />
+              <input type="text" name="address" class="cart__form-input" placeholder="Адрес доставки" />
               <textarea
                 class="cart__form-text"
                 name="comment"
                 id="comment"
+                placeholder="Комментарий к заказу"
               ></textarea>
             </fieldset>
             <fieldset class="cart__form-fieldset">
@@ -415,7 +420,7 @@
     <!-- FOOTER -->
     <div class="footer">
       <div class="container footer__container">
-        <a class="footer__logo-link visually-hidden" href="/" title="Переход на главную страницу" aria-label="Переход на главную страницу">
+        <a class="footer__logo-link" href="/" title="Переход на главную страницу" aria-label="Переход на главную страницу">
           <img class="footer__logo-image footer__logo-icon logo" src="/img/logo.svg" alt="Логотип SKI-People" />
         </a>
 
