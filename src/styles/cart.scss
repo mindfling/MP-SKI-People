@@ -1,0 +1,205 @@
+@use 'colors';
+
+.cart {
+  padding: 32px 0 80px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__title {
+    font-family: 'Inter';
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 1.2;
+    color: #1c1c1c;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  &__item-image {
+    display: block;
+    border-radius: 16px;
+    width: 120px;
+    height: 99px;    
+  }
+
+  &__item-title {
+  }
+
+  &__item-price {
+  }
+
+  &__item-id {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #969eae;    
+  }
+
+
+
+  &__order {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__order-title {
+  }
+
+  &__order-info {
+  }
+
+  &__order-count {
+  }
+
+  &__order-number {
+  }
+
+  &__order-text {
+  }
+
+  &__order-price {
+  }
+
+  &__order-delivery {
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 1.2;
+    color: #969eae;    
+  }
+
+  &__order-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid colors.$blue;
+    background-color: colors.$blue;
+    color: colors.$white;
+    border-radius: 32px;
+    width: 288px;
+    height: 38px;
+    
+    &:hover {
+      background-color: colors.$white;
+      color: colors.$blue;
+    }  
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__form-title {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #1c1c1c;    
+  }
+
+  &__form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: none;
+  }
+
+  &__form-input {
+    display: block;
+    border-radius: 4px;
+    padding: 12px 14px;
+    width: 100%;
+    height: 38px;
+    background: #eeeff2;
+    border: 1px solid #eeeff2;
+
+    &:focus {
+      border: 1px solid #dfe3eb;
+    }
+  }
+  
+  &__form-text {
+    display: block;
+    border-radius: 4px;
+    padding: 12px 14px;
+    width: 100%;
+    background: #eeeff2;
+    border: 1px solid #eeeff2;
+  }
+
+  &__form-fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: none;
+  }
+
+  &__form-legend {
+  }
+
+  &__form-label {
+    display: flex;
+    justify-self: start;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__form-radio {
+  }
+}
+.container {
+}
+.input {
+
+  &__item-counter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #eeeff2;
+    border-radius: 32px;
+    width: 64px;
+    height: 24px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #1c1c1c;
+  }
+}
+
+
+.counter {
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+  
+  }
+
+  &__minus {
+  }
+
+  &__number {
+  }
+
+  &__plus {
+  }
+}
