@@ -1,0 +1,76 @@
+@use 'colors';
+
+
+.order {
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__info {
+    border: 1px solid colors.$lightgrey;
+    border-radius: 16px;
+    width: 320px;
+    padding: 24px 16px;
+
+    @media (width > 768px) {
+      width: 710px;
+    }
+
+    @media (width > 1024px) {
+      width: 726px;
+    }
+
+    @media (width > 1440px) {
+      width: 832px;
+    }
+  }
+
+  &__info-title {}
+
+  &__info-price {}
+
+  &__info-id {}
+}
+
+.product {
+
+  &__container {}
+
+  &__info {}
+
+  &__info-title {}
+
+  &__info-price {}
+
+  &__info-id {}
+
+  &__table {}
+
+  &__table-body {}
+
+  &__table-row {}
+
+  &__table-item {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.2;
+    text-align: right;
+    color: #1c1c1c;
+  }
+
+  &__table-item:first-child {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #969eae;
+  }
+
+  &__buttons {}
+
+  &__button {}
+}
+
+.container {}
