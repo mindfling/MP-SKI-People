@@ -40,11 +40,29 @@ app.get('/goods', async (req, res) => {
     // оформляем заголовки
     res.header('Access-Control-Allow-Origin', '*');
     res.json(updatedGoods);
-    res.send('Welcome to our node express server');
+    // res.send('Welcome to our node express server');
     // res.send(JSON.stringify(updatedGoods))
     console.log('JSON.stringify(updatedGoods): ', JSON.stringify(updatedGoods));
   } catch {
     res.send('Error');
+  }
+})
+
+app.post('/product', async (req, res) => {
+  
+  try {
+    console.log('Welcome... PRODUCT post');
+    console.log('req: ', req.body);
+    // console.log('req: ', req.body);
+    // const updatedGoods = await sendData();
+    // оформляем заголовки
+    res.header('Access-Control-Allow-Origin', '*');
+    // res.json(updatedGoods);
+    res.send('Welcome to our node express server PRODUCT');
+    // res.send(JSON.stringify(updatedGoods))
+    console.log('JSON.stringify(updatedGoods): ', JSON.stringify(updatedGoods));
+  } catch {
+    res.send('Error in product');
   }
 })
 

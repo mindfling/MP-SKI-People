@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test tel phone Поле ввода номера телефона</title>
+  <style>
+    /* Стили для контейнера формы */
+    form {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #dddddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px #0000001a;
+      background-color: #f9f9f9;
+    }
+
+    /* Стили для заголовка (label) */
+    label {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #333;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* Стили для поля ввода */
+    input[type="number"],
+    input[type="tel"] {
+      width: 100%;
+      width: calc(100% - 50px);
+      padding: 10px 15px;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+      color: #333;
+      background-color: #eaeaea;
+      /* Серый фон */
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      /* Скругленные углы */
+      outline: none;
+      /* Убираем стандартное выделение при фокусе */
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Эффект при фокусе на поле ввода */
+    input[type="tel"]:focus {
+      border-color: #007bff;
+      /* Голубая рамка при фокусе */
+      box-shadow: 0 0 8px #007bff33;
+      /* Легкая тень */
+    }
+
+    /* Стили для пояснительного текста */
+    small {
+      display: block;
+      font-family: sans-serif;
+      margin-top: 5px;
+      font-size: 12px;
+      color: #666;
+    }
+
+    /* Стили для кнопки отправки */
+    button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background-color: #007bff;
+      /* Голубой фон */
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      outline: transparent;
+    }
+
+    /* Эффект при наведении на кнопку */
+    button:hover {
+      background-color: #0056b3;
+      /* Темно-голубой фон */
+    }
+
+    button:focus {
+      background-color: white;
+      /* Темно-голубой фон */
+      color: #0056b3;
+      border: 1px solid #0056b3;
+      outline: 1px solid #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2 class="title">Пример формы номера Продукта</h2>
+
+  <form action="http://localhost:3000/product" method="post">
+    <label for="product">Введите номер ЗАКАЗА</label>
+    <input type="number" id="product" name="product" placeholder="1234"
+      pattern="\+?[0-9]{1,3}[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{2}[-.\s]?\d{2}" required>
+    <!-- <small>Формат: +7 (XXX) XXX-XX-XX</small> -->
+    <button type="submit">Отправить</button>
+  </form>
+
+  <!-- <h2 class="title">Пример формы номера телефона</h2>
+  <form action="http://localhost:3000/goods" method="get">
+    <label for="phone">Введите номер телефона: также номер заказа</label>
+    <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__"
+      pattern="\+?[0-9]{1,3}[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{2}[-.\s]?\d{2}" required>
+    <small>Формат: +7 (XXX) XXX-XX-XX</small>
+    <button type="submit">Отправить</button>
+  </form> -->
+
+  
+</body>
+
+</html>
