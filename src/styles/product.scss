@@ -14,19 +14,82 @@
     width: 100%;
   }
 
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+    @media (min-width: 768px) {
+      gap: 40px;
+    }
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      gap: 12px;
+    }
+
+    @media (min-width: 1440px) {
+      gap: 16px;
+    }
+  }
+
   &__title {
+    font-family: Inter;
     font-weight: 900;
     font-size: 24px;
-    color: #1c1c1c;
+    margin-bottom: 24px;
+    color: colors.$black;
+
+    @media (min-width: 768px) {
+      font-size: 32px;
+    }
+
+    @media (min-width: 1024px) {
+      margin-bottom: 40px;
+    }
   }
 
   &__slider {
+    width: 100%;
+
   }
 
   &__slider-image {
+    border-radius: 16px;
+    margin-bottom: 14px;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      margin-bottom: 12px;
+      width: 100%;
+    }
+
+    @media (min-width: 1024px) {
+      margin-bottom: 16px;
+      width: 620px;
+    }
+    @media (min-width: 1440px) {
+      width: 832px;
+    }
   }
 
   &__slider-thumbnails {
+    display: none;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      display: flex;
+      gap: 14px;
+    }
+
+    @media (min-width: 1024px) {
+      gap: 12px;
+    }
+
+    @media (min-width: 1440px) {
+      gap: 16px;
+    }
   }
 
   &__info {
@@ -37,33 +100,47 @@
   }
 
   &__info-price {
-    font-weight: 400;
     font-size: 20px;
-    color: #1c1c1c;
+    margin-bottom: 12px;
+    color: colors.$black;
   }
 
   &__info-id {
+    font-size: 12px;
+    margin-bottom: 24px;
     border-radius: 32px;
+    background: colors.$lightgrey;
     padding: 4px 8px;
     width: max-content;
-    background: #eeeff2;
+    display: inline-block;
+
+    @media (min-width: 768px) {
+      margin-bottom: 28px;
+    }
+
+    @media (min-width: 1024px) {
+      margin-bottom: 24px;
+    }
   }
 
   &__info-title {
+    font-weight: 400;
     font-size: 16px;
-    color: #1c1c1c;    
+    color: colors.$black;
   }
 
+  //! todo for product and order
   &__table {
     width: 100%;
+    margin-bottom: 24px;
   }
-  
+
   &__table-body {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
-  
+
   &__table-row {
     display: flex;
     justify-content: space-between;
@@ -74,9 +151,11 @@
   }
 
   &__table-item:first-child {
+    color: colors.$grey;
     text-align: left;
   }
-  &__table-item {
+
+  &__table-item:last-child {
     text-align: right;
   }
 
@@ -89,15 +168,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: colors.$white;
+    background-color: colors.$blue;
     border: 1px solid colors.$blue;
     border-radius: 32px;
-    width: 260px;
+    padding: 12px 24px;
     width: 100%;
-    height: 38px;
-    background-color: colors.$blue;
     font-size: 12px;
     text-align: center;
-    color: colors.$white;
 
     &:hover {
       background-color: colors.$white;
@@ -105,9 +183,31 @@
     }
   }
 
-  &__like-button {
+  &__like-button {}
+
+}
+
+
+
+.slider-thumbnails__image {
+  border-radius: 16px;
+  width: 167px;
+  height: 138px;
+}
+
+
+// todo
+.slider-thumbnails {
+
+  &__item {
+    border-radius: 16px;
+    overflow: hidden;
+    width: 100%;
   }
 
-  &__description {
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
