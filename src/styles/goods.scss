@@ -11,14 +11,17 @@
   &__container {
     display: flex;
     flex-direction: column;
+    justify-content: start;
+    align-items: center;
     gap: 25px;
+    gap: 40px;
   }
 
   &__title {
     font-family: Inter;
     font-size: 24px;
     font-weight: 900;
-    margin-bottom: 24px;
+    // margin-bottom: 24px;
     color: colors.$black;
 
     @media (min-width: 768px) {
@@ -33,6 +36,7 @@
 
 
   &__list {
+    width: 100%;
     display: grid;
     gap: 32px 8px;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -75,7 +79,7 @@
     transition: scale 400ms ease;
 
     &:hover {
-      scale: 1.07;
+      scale: 1.02;
     }
   }
 

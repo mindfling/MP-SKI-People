@@ -1,0 +1,68 @@
+@use 'colors';
+
+.goods__pagination {
+  // border: 1px solid lawngreen;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.pagination__list {
+  display: flex;
+  border-radius: 32px;
+  background-color: colors.$lightgrey;
+  margin-bottom: 16px;
+}
+
+.pagination__item {
+  flex-grow: 1;
+  border-radius: 32px;
+  // width: 68px;
+  height: 6px;
+  background-color: colors.$lightgrey;
+  cursor: pointer;
+  &:hover {
+    background-color: colors.$blue;
+  }
+}
+
+.pagination__item_active {
+  background-color: colors.$blue;
+}
+
+.pagination__link {
+  // background-color: #bb1b1b;
+  // width: 100%;
+  // height: 100%;
+  cursor: pointer;
+}
+
+.pagination__controle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination__btn {
+  display: block;
+  width: 32px;
+  height: 32px;
+  &:hover {
+    background-color: colors.$lightgrey;
+  }
+}
+
+.pagination__btn_prev {}
+
+.pagination__pages {}
+
+.pagination__curr-page {}
+
+.pagination__total-page {}
+
+.pagination__btn_next {}
