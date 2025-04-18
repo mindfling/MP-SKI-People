@@ -15,7 +15,7 @@
     <header class="header">
       <div class="container">
         <div class="header__wrapper">
-          <a class="header__logo-link header__link" href="/main" title="Переход на главную страницу" aria-label="Переход на главную страницу">
+          <a class="header__logo-link header__link" href="/main.html" title="Переход на главную страницу" aria-label="Переход на главную страницу">
             <img class="header__logo-image logo" src="/img/logo.svg" alt="Логотип SKI-People" />
           </a>
 
@@ -55,56 +55,100 @@
     </header>
 
     <main class="main">
-      <section class="order product">
-        <div class="container order__container product__container">
-          <div class="order__info product__info">
-            <h3 class="order__info-title product__info-title">Заказ успешно размещен</h3>
+      
+      <!-- ХЛЕБНЫЕ КРОШКИ -->
+      <div class="breadcrumb">
+        <div class="container breadcrumb__container">
+          <nav class="breadcrumb__navigation">
+            <ul class="breadcrumb__list">
+              <li class="breadcrumb__item">
+                <a class="breadcrumb__link" href="#" title="Вернуться на Главную">Главная</a>
+              </li>
+              <li class="breadcrumb__item">
+                <a class="breadcrumb__link" href="#" title="Вернуться на категорию Лыжи">Лыжи</a>
+              </li>
+              <li class="breadcrumb__item">
+                <a class="breadcrumb__link" href="#" title="Вернуться на категорию Горные лыжи">Горные лыжи</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
 
-            <p class="order__info-price product__info-price">20&nbsp;000&nbsp;₽</p>
+      <!-- СТРАНИЦА КАРТОЧКИ ТОВАРА -->
+      <section class="product">
+        <div class="container product__container">
+          <h2 class="product__title">Горные&nbsp;лыжи</h2>
 
-            <p class="order__info-id product__info-id">№43435</p>              
+          <div class="product__description">
+            <div class="product__slider">
+              <img class="product__slider-image" src="public/img/products/ski-blue.png" />
+
+              <ul class="product__slider-thumbnails slider-thumbnails">
+                <li class="slider-thumbnails__item">
+                  <img class="slider-thumbnails__image" src="public/img/products/ski-blue.png" alt="Синие лыжи" />
+                </li>
+
+                <li class="slider-thumbnails__item">
+                  <img class="slider-thumbnails__image" src="public/img/products/ski-green.jpg" alt="Синие лыжи" />
+                </li>
+
+                <li class="slider-thumbnails__item">
+                  <img class="slider-thumbnails__image" src="public/img/products/ski-mount.png" alt="Синие лыжи" />
+                </li>
+
+                <li class="slider-thumbnails__item">
+                  <img class="slider-thumbnails__image" src="public/img/products/ski-red.png" alt="Синие лыжи" />
+                </li>
+              </ul>
+            </div> <!-- slider -->
             
-            <h3 class="order__info-title product__info-title">Данные доставки</h3>
-
-            <table class="product__table">
-              <tbody class="product__table-body">
-                <tr class="product__table-row">
-                  <td class="product__table-item">Получатель</td>
-                  <td class="product__table-item">Иванов Иван Иванович</td>
-                </tr>
-
-                <tr class="product__table-row">
-                  <td class="product__table-item">Телефон</td>
-                  <td class="product__table-item">+7&nbsp;(737)&nbsp;346&nbsp;23&nbsp;00</td>
-                </tr>
-
-                <tr class="product__table-row">
-                  <td class="product__table-item">E-mail</td>
-                  <td class="product__table-item">Ivanov84@gmail.com</td>
-                </tr>
-
-                <tr class="product__table-row">
-                  <td class="product__table-item">Адрес доставки</td>
-                  <td class="product__table-item">Город, ул. Тестовая, 123, кв. 1234</td>
-                </tr>
-
-                <tr class="product__table-row">
-                  <td class="product__table-item">Способ оплаты</td>
-                  <td class="product__table-item">Картой при получении</td>
-                </tr>
-                
-                <tr class="product__table-row">
-                  <td class="product__table-item">Способ получения</td>
-                  <td class="product__table-item">Доставка</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <div class="product__buttons">
-              <a class="product__button" type="button" href="/">На главную</a>
+            <div class="product__info">
+              <p class="product__info-price">5&nbsp;000&nbsp;₽</p>
+              <p class="product__info-id">арт.&nbsp;84348945757</p>              
+              
+              <h3 class="product__info-title">Общие характеристики</h3>
+              
+              <table class="product__table">
+                <tbody class="product__table-body">
+                  <tr class="product__table-row">
+                    <td class="product__table-item">Коллекция</td>
+                    <td class="product__table-item">Snow</td>
+                  </tr>
+                  <tr class="product__table-row">
+                    <td class="product__table-item">Производитель</td>
+                    <td class="product__table-item">Россия</td>
+                  </tr>
+                  <tr class="product__table-row">
+                    <td class="product__table-item">Гарантия</td>
+                    <td class="product__table-item">1 год</td>
+                  </tr>
+                  <tr class="product__table-row">
+                  <td class="product__table-item">Срок службы</td>
+                  <td class="product__table-item">5 лет</td>
+                  </tr>
+                  <tr class="product__table-row">
+                    <td class="product__table-item">Цвет</td>
+                    <td class="product__table-item">Синий</td>
+                  </tr>
+                  <tr class="product__table-row">
+                    <td class="product__table-item">Макс нагрузка</td>
+                    <td class="product__table-item">130 кг</td>
+                  </tr>
+                </tbody>
+              </table>
+            
+            <div class="product__buttons info-buttons">
+              <button class="product__button info-buttons__to-cart" type="button">В корзину</button>
+              <button class="product__like-button info-buttons__like">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z" fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
+          
       </section>
     </main>
 

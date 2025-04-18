@@ -15,7 +15,7 @@
     <header class="header">
       <div class="container">
         <div class="header__wrapper">
-          <a class="header__logo-link header__link" href="/main" title="Переход на главную страницу" aria-label="Переход на главную страницу">
+          <a class="header__logo-link header__link" href="/main.html" title="Переход на главную страницу" aria-label="Переход на главную страницу">
             <img class="header__logo-image logo" src="/img/logo.svg" alt="Логотип SKI-People" />
           </a>
 
@@ -55,55 +55,161 @@
     </header>
 
     <main class="main">
-      <section class="order product">
-        <div class="container order__container product__container">
-          <div class="order__info product__info">
-            <h3 class="order__info-title product__info-title">Заказ успешно размещен</h3>
+    
+      <!-- CART КОРЗИНА -->
+      <section class="cart">
+        <div class="container cart__container">
+          <h2 class="cart__title">Корзина</h2>
 
-            <p class="order__info-price product__info-price">20&nbsp;000&nbsp;₽</p>
+          <ul class="cart__list">
+            <li class="cart__item">
+              <img
+                src="/img/products/ski-blue-mini.png"
+                alt="Синие горные лыжи на снегу"
+                title="Синие горные лыжи на снегу"
+                class="cart__item-image"
+              />
+              <h3 class="cart__item-title">Горные&nbsp;лыжи</h3>
+              <p class="cart__item-price">5&nbsp;000&nbsp;₽</p>
+              <p class="cart__item-id">арт.&nbsp;84348945757</p>
+              <div class="input__item-counter counter">
+                <button class="counter__button counter__minus" type="button">&minus;</button>
+                <p class="counter__number">1</p>
+                <button class="counter__button counter__plus" type="button">&plus;</button>
+              </div>
+            </li>
+            <li class="cart__item">
+              <img
+                src="/img/products/ski-blue-mini.png"
+                alt="Синие горные лыжи на снегу"
+                title="Синие горные лыжи на снегу"
+                class="cart__item-image"
+              />
+              <h3 class="cart__item-title">Горные&nbsp;лыжи</h3>
+              <p class="cart__item-price">5&nbsp;000&nbsp;₽</p>
+              <p class="cart__item-id">арт.&nbsp;84348945757</p>
+              <div class="input__item-counter counter">
+                <button class="counter__button counter__minus" type="button">&minus;</button>
+                <p class="counter__number">1</p>
+                <button class="counter__button counter__plus" type="button">&plus;</button>
+              </div>
+            </li>
+            <li class="cart__item">
+              <img
+                src="/img/products/ski-blue-mini.png"
+                alt="Синие горные лыжи на снегу"
+                title="Синие горные лыжи на снегу"
+                class="cart__item-image"
+              />
+              <h3 class="cart__item-title">Горные&nbsp;лыжи</h3>
+              <p class="cart__item-price">5&nbsp;000&nbsp;₽</p>
+              <p class="cart__item-id">арт.&nbsp;84348945757</p>
+              <div class="input__item-counter counter">
+                <button class="counter__button counter__minus" type="button">&minus;</button>
+                <p class="counter__number">1</p>
+                <button class="counter__button counter__plus" type="button">&plus;</button>
+              </div>
+            </li>
+          </ul>
 
-            <p class="order__info-id product__info-id">№43435</p>              
-            
-            <h3 class="order__info-title product__info-title">Данные доставки</h3>
-
-            <table class="product__table">
-              <tbody class="product__table-body">
-                <tr class="product__table-row">
-                  <td class="product__table-item">Получатель</td>
-                  <td class="product__table-item">Иванов Иван Иванович</td>
-                </tr>
-
-                <tr class="product__table-row">
-                  <td class="product__table-item">Телефон</td>
-                  <td class="product__table-item">+7&nbsp;(737)&nbsp;346&nbsp;23&nbsp;00</td>
-                </tr>
-
-                <tr class="product__table-row">
-                  <td class="product__table-item">E-mail</td>
-                  <td class="product__table-item">Ivanov84@gmail.com</td>
-                </tr>
-
-                <tr class="product__table-row">
-                  <td class="product__table-item">Адрес доставки</td>
-                  <td class="product__table-item">Город, ул. Тестовая, 123, кв. 1234</td>
-                </tr>
-
-                <tr class="product__table-row">
-                  <td class="product__table-item">Способ оплаты</td>
-                  <td class="product__table-item">Картой при получении</td>
-                </tr>
-                
-                <tr class="product__table-row">
-                  <td class="product__table-item">Способ получения</td>
-                  <td class="product__table-item">Доставка</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <div class="product__buttons">
-              <a class="product__button" type="button" href="/">На главную</a>
+          <div class="cart__order">
+            <h3 class="cart__order-title">Оформление</h3>
+            <div class="cart__order-info">
+              <p class="cart__order-count">
+                <span class="cart__order-number">4</span>
+                <span class="cart__order-text">товаров на сумму:</span>
+              </p>
+              <p class="cart__order-price">20&nbsp;000&nbsp;₽</p>
             </div>
+            <p class="cart__order-delivery">Доставка 0&nbsp;₽</p>
+            <button class="cart__order-button" type="submit" form="cartForm">Оформить заказ</button>
           </div>
+
+          <form action="#" id="cartForm" class="cart__form" method="POST">
+            <h3 class="cart__form-title">Данные для доставки</h3>
+
+            <fieldset class="cart__form-inputs">
+              <input 
+                type="text" 
+                name="name" 
+                class="cart__form-input" 
+                placeholder="Фамилия Имя Отчество"
+                title="Ввести имя заказчика" />
+              <input 
+                type="tel" 
+                name="tel" 
+                class="cart__form-input" 
+                placeholder="Телефон" 
+                title="Ввести номер телефона заказчика" />
+              <input 
+                type="email" 
+                name="email" 
+                class="cart__form-input" 
+                placeholder="E-mail"
+                title="Ввести адрес электронной почты для электронного чека" />
+              <input 
+                type="text" 
+                name="address" 
+                class="cart__form-input" 
+                placeholder="Адрес доставки"
+                title="Ввести адрес доставки" />
+              <textarea
+                class="cart__form-text"
+                name="comment"
+                id="comment"
+                placeholder="Комментарий к заказу"
+                title="Ввести комментарии заказчика"
+              ></textarea>
+            </fieldset>
+
+            <fieldset class="cart__form-fieldset">
+              <legend class="cart__form-legend">Доставка</legend>
+              <label class="cart__form-label">
+                <input
+                  class="cart__form-radio"
+                  type="radio"
+                  value="delivery"
+                  name="delivery"
+                  title="Доставка к клиенту"
+                />
+                Доставка
+              </label>
+              <label class="cart__form-label">
+                <input
+                  class="cart__form-radio"
+                  type="radio"
+                  value="pickup"
+                  name="delivery"
+                  title="Получение клиентом самовывозом"
+                />
+                Самовывоз
+              </label>
+            </fieldset>
+
+            <fieldset class="cart__form-fieldset">
+              <legend class="cart__form-legend">Оплата</legend>
+              <label class="cart__form-label">
+                <input
+                  class="cart__form-radio"
+                  type="radio"
+                  value="card"
+                  name="payment"
+                  title="Выбор оплаты банковской картой при получении"
+                />
+                Картой при получении
+              </label>
+              <label class="cart__form-label">
+                <input
+                  class="cart__form-radio"
+                  type="radio"
+                  value="cash"
+                  name="payment"
+                  title="Выбор оплаты наличными при получении"
+                />
+                Наличными при получении
+              </label>
+            </fieldset>
+          </form>
         </div>
       </section>
     </main>
