@@ -76,10 +76,11 @@
     object-fit: cover;
     border-radius: 16px;
     scale: 1;
-    transition: scale 400ms ease;
+    transition: all 400ms ease;
 
     &:hover {
       scale: 1.02;
+      filter: saturate(2);
     }
   }
 

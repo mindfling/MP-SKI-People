@@ -31,6 +31,25 @@ body {
   flex-direction: column;
 }
 
+// прибиваем футер вниз
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header {
+  flex-grow: 0;
+}
+
+.main {
+  flex-grow: 5;
+}
+
+.footer {
+  flex-grow: 1;
+}
+
 h1,
 h2,
 h3,
