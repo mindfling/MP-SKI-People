@@ -67,7 +67,7 @@
       justify-content: start;
 
       @media (width > 768px) {
-        justify-content: space-between;
+        justify-content: space-evenly;
       }
     }
   }
