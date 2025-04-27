@@ -1,5 +1,15 @@
 import 'normalize.css'
 import './styles.scss';
+import { initRouter } from './js/router';
+
 
 const Hello = "World"
-console.log(`Hello`, Hello);
+
+const init = () => {
+  // init my app
+  console.log(`Hello`, Hello);
+  initRouter();
+}
+
+// initialization
+init();
