@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "navigo": "^8.11.1",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "swiper": "^11.2.6"
   }
 }
