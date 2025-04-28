@@ -1,15 +1,12 @@
 import { layout } from "./layout";
 
-
 export const header = () => {
-  console.log('header componet');
+  console.log("header componet");
 
-  const el = document.createElement('header');
-  el.classList.add('header');
+  const el = document.createElement("header");
+  el.classList.add("header");
 
-  const child = `
-    <header class="header">
-      <div class="container">
+  const headerChild = `
         <div class="header__wrapper">
           <a class="header__logo-link header__link" href="/main" title="Переход на главную страницу" aria-label="Переход на главную страницу">
             <img class="header__logo-image logo" src="/img/logo.svg" alt="Логотип SKI-People" />
@@ -47,11 +44,9 @@ export const header = () => {
             </a>
           </div>
         </div>
-      </div>
-    </header>
   `;
 
-  el.append(layout(child, 'header__container'));
+  el.append(layout(headerChild, "header__container"));
 
   return el;
-}
+};
