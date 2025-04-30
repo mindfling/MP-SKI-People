@@ -1,16 +1,24 @@
 import Navigo from "navigo";
-import { header } from "../components/header.js";
+import { header } from "../components/header";
+import { footer } from "../components/footer";
+import { main } from "../components/mainLayout";
 
 const router = new Navigo("/", { linksSelector: 'a[href^="/"]' });
-console.log("router: ", router);
 
 export const initRouter = () => {
+
   // my init router
   console.log("init router 😃");
 
   router
     .on("/", () => {
       console.log("Главная страница");
+
+      document.body.prepend(header());
+
+      document.body.append(main())
+
+      document.body.append(footer());
     })
     .on("/main", () => {
       console.log("Main page");
