@@ -17,6 +17,8 @@ export const cart = (title, parent, data = []) => {
     return document.querySelector('.cart');
   }
 
+  const el = document.createElement('section');
+  el.classList.add('cart');
 
   // в других случаях рендерим верстку
   const child = `
