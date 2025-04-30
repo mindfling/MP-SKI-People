@@ -1,5 +1,6 @@
-// Контейнер конпонент .container
-// child html содержимое контейнера
+// * main.js // mainLayout.js
+// Контейнер конпонент .main
+// children содержимое контейнера main
 
 export const main = (children) => {
 
@@ -12,6 +13,8 @@ export const main = (children) => {
   // вставляем текстовый код html внутрь контейнреа
   // el.innerHTML = child;
   el.append(children);
+
+  el.innerHTML = `<h1 class="title">Inner Main Title</h1>`
 
   return el;
 }
