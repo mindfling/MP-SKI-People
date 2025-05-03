@@ -2,13 +2,29 @@
 
 .cart {
   padding: 32px 0 80px;
-
-  &__container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  padding-bottom: 60px;
+  
+  &__wrapper {
+    display: grid;
+    grid-template-areas: 
+      'list'
+      'form'
+      'order'
+    ;
+    
+    @media (min-width: 1024px) {
+      grid-template-areas: 
+        'list order' 
+        'form form'
+      ;
+      grid-template-columns: 1fr 302px;
+    }
+    
+    @media (min-width: 1440px) {
+      grid-template-columns: 1fr 408px;
+    }
   }
-
+  
   &__title {
     font-family: 'Inter';
     font-weight: 900;
@@ -16,55 +32,132 @@
     line-height: 1.2;
     color: #1c1c1c;
   }
-
+  
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  
   &__list {
+    border: 1px solid orange;
+    grid-area: list;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    padding-bottom: 24px;
   }
 
   &__item {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 12px;
+    border: 1px solid orange;
+    display: grid;
+    gap: 4px 8px;
+    grid-template-columns: 80px 1fr 1fr;
+    grid-template-rows: min-content min-content 1fr;
+    grid-template-areas: 
+      'image title title'
+      'image id id'
+      'image counter price'
+    ;
+    
+    @media (min-width: 1024px) {
+      grid-template-areas: 
+        'image title price'
+        'image id id'
+        'image counter counter'
+      ;
+    }
   }
 
   &__item-image {
-    display: block;
+    grid-area: image;
+    background-repeat: 16px;
     border-radius: 16px;
     width: 120px;
-    height: 99px;    
+    height: 99px;
   }
-
+  
   &__item-title {
-  }
-
-  &__item-price {
-  }
-
-  &__item-id {
+    grid-area: title;
     font-weight: 400;
     font-size: 12px;
-    line-height: 1.2;
-    color: #969eae;    
+    line-height: 120%;
+    color: #1c1c1c;
+    
+    @media (min-width: 768px) {
+      font-size: 16px;
+      
+    }
+  }
+  
+  &__item-price {
+    grid-area: price;
+    font-size: 12px;
+    color: #1c1c1c;
+    justify-content: end;
+    
+    @media (min-width: 768px) {
+      font-size: 16px;
+    }
+  }
+  
+  &__item-id {
+    grid-area: id;
+    font-weight: 400;
+    font-size: 9px;
+    color: #969eae;
+    
+    @media (min-width: 768px) {
+      font-size: 12px;
+    }
   }
 
-
-
   &__order {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    border: 1px solid blue;
+    grid-area: order;
   }
 
   &__order-title {
+    font-weight: 400;
+    font-size: 16px;
+    color: #1c1c1c;
+    margin-bottom: 16px;
+
+    @media (min-width: 768px) {
+      font-size: 20px;
+    }
   }
 
   &__order-info {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 12px;
+    color: #1c1c1c;
+    margin-bottom: 32px;
+
+    @media (min-width: 768px) {
+      font-size: 16px;
+    }
   }
 
   &__order-count {
+    font-size: 12px;
+    
+    @media (min-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
+  &__order-delivery {
+    font-weight: 400;
+    font-size: 9px;
+    color: #969eae;
+    margin-bottom: 8px;
+    
+    @media (min-width: 768px) {
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
   }
 
   &__order-number {
@@ -76,23 +169,24 @@
   &__order-price {
   }
 
-  &__order-delivery {
-    font-weight: 400;
-    font-size: 9px;
-    line-height: 1.2;
-    color: #969eae;    
-  }
-
   &__order-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border: 1px solid colors.$blue;
+    border-radius: 32px;
+    width: 100%;
+    height: 38px;
     background-color: colors.$blue;
     color: colors.$white;
-    border-radius: 32px;
-    width: 288px;
-    height: 38px;
+    padding: 12px 24px;
+        
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // border: 1px solid colors.$blue;
+    // background-color: colors.$blue;
+    // color: colors.$white;
+    // border-radius: 32px;
+    // width: 288px;
+    // height: 38px;
     
     &:hover {
       background-color: colors.$white;
@@ -101,46 +195,112 @@
   }
 
   &__form {
-    display: flex;
-    flex-direction: column;
+    grid-area: form;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 16px;
+    padding: 24px 0;
+    border-top: 1px solid colors.$lightgrey;
+    border-bottom: 1px solid colors.$lightgrey;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: 350px 350px;
+    }
+    
+    @media (min-width: 1024px) {
+      grid-template-columns: 408px 408px;
+    }
   }
-
+  
   &__form-title {
     font-weight: 400;
     font-size: 16px;
-    line-height: 1.2;
     color: #1c1c1c;    
-  }
 
+    @media (min-width: 1024px) {
+      font-size: 20px;
+    }
+  }
+  
   &__form-inputs {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 8px;
     border: none;
+    border: 0;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+      grid-column: 1/-1;
+      gap: 10px;
+    }
+    
+    @media (min-width: 1440px) {
+      min-width: 832px;
+      gap: 16px;
+    }
   }
 
   &__form-input {
-    display: block;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 12px;
     border-radius: 4px;
-    padding: 12px 14px;
     width: 100%;
     height: 38px;
-    background: #eeeff2;
-    border: 1px solid #eeeff2;
+    outline: none;;
+    background-color: colors.$lightgrey;
+    border: 1px solid colors.$lightgrey;
+    color: colors.$black;
+    padding: 12px 14px;
+    
+    &::placeholder {
+      // todo сделать как у Яндекса 
+      position: absolute;
+      top: 5px;
+      font-size: 9px;
+      color: colors.$grey;
+    }
 
+    &:hover {
+      border: 1px solid #dfe3eb;
+    }
+    
     &:focus {
       border: 1px solid #dfe3eb;
     }
   }
   
   &__form-text {
-    display: block;
-    border-radius: 4px;
-    padding: 12px 14px;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 12px;
     width: 100%;
-    background: #eeeff2;
-    border: 1px solid #eeeff2;
+    min-height: 120px;
+    outline: none;;
+    background-color: colors.$lightgrey;
+    border: 1px solid colors.$lightgrey;
+    border-radius: 4px;
+    color: colors.$black;
+    padding: 12px 14px;
+
+    &::placeholder {
+      color: colors.$grey;
+    }
+    
+    &:hover {
+      border: 1px solid #dfe3eb;
+    }
+    
+    &:focus {
+      border: 1px solid #dfe3eb;
+    }
+    
+    @media (min-width: 768px) {
+      grid-column: 1/-1;
+    }
   }
 
   &__form-fieldset {
@@ -163,8 +323,7 @@
   &__form-radio {
   }
 }
-.container {
-}
+
 .input {
 
   &__item-counter {
@@ -184,6 +343,8 @@
 
 
 .counter {
+  grid-area: counter;
+  display: flex;
 
   &__button {
     display: flex;
