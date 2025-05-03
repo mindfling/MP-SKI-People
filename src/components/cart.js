@@ -1,10 +1,11 @@
+import { layout } from './layout';
 // cart.js КОРЗИНА
 // <!-- CART КОРЗИНА -->
-import { layout } from './layout';
 
 let rendered = false;
 
 export const cart = (title, parent, data = []) => {
+  console.log('inside component cart');
 
   // isRemove
   if (title === 'remove') {
@@ -15,14 +16,14 @@ export const cart = (title, parent, data = []) => {
 
   if (rendered) {
     return document.querySelector('.cart');
-  }
+  } 
 
   const el = document.createElement('section');
   el.classList.add('cart');
 
   // в других случаях рендерим верстку
   const child = `
-    <h2 class="cart__title">Корзина</h2>
+    <h2 class="cart__title">${title}</h2>
 
     <div className="cart__wrapper">
       <ul class="cart__list">
@@ -179,7 +180,7 @@ export const cart = (title, parent, data = []) => {
 
 
   el.append(layout(child, 'cart__container'));
-  perent.append(el);
+  parent.append(el);
 
   rendered = true;
 
