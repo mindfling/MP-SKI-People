@@ -11,6 +11,7 @@
       'form'
       'order'
     ;
+    column-gap: 36px;
     
     @media (min-width: 1024px) {
       grid-template-areas: 
@@ -36,10 +37,10 @@
   &__container {
     display: flex;
     flex-direction: column;
+    row-gap: 20px;
   }
   
   &__list {
-    border: 1px solid orange;
     grid-area: list;
     display: flex;
     flex-direction: column;
@@ -48,23 +49,32 @@
   }
 
   &__item {
-    border: 1px solid orange;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    
     display: grid;
     gap: 4px 8px;
-    grid-template-columns: 80px 1fr 1fr;
+    grid-template-columns: 80px min-content 1fr;
     grid-template-rows: min-content min-content 1fr;
     grid-template-areas: 
-      'image title title'
-      'image id id'
-      'image counter price'
+    'image title title'
+    'image id id'
+    'image counter price'
     ;
+    
+    &:hover {
+      border: 1px solid #dfe3eb;
+      cursor: pointer;
+    }
     
     @media (min-width: 1024px) {
       grid-template-areas: 
-        'image title price'
-        'image id id'
-        'image counter counter'
+      'image title price'
+      'image id id'
+      'image counter counter'
       ;
+      grid-template-columns: 120px 1fr 1fr;
+      gap: 12px;
     }
   }
 
@@ -72,8 +82,7 @@
     grid-area: image;
     background-repeat: 16px;
     border-radius: 16px;
-    width: 120px;
-    height: 99px;
+    // width: 80px;
   }
   
   &__item-title {
@@ -92,11 +101,17 @@
   &__item-price {
     grid-area: price;
     font-size: 12px;
-    color: #1c1c1c;
-    justify-content: end;
+    color: colors.$black;
+    justify-self: start;
+    align-self: flex-end;
+    padding-right: 6px;
     
     @media (min-width: 768px) {
       font-size: 16px;
+    }
+    
+    @media (min-width: 1024px) {
+      justify-self: center;
     }
   }
   
@@ -112,7 +127,6 @@
   }
 
   &__order {
-    border: 1px solid blue;
     grid-area: order;
   }
 
@@ -231,18 +245,19 @@
     border: none;
     border: 0;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
       grid-template-columns: 1fr 1fr;
       grid-column: 1/-1;
       gap: 10px;
     }
     
-    @media (min-width: 1440px) {
+    @media (min-width: 1024px) {
       min-width: 832px;
       gap: 16px;
     }
   }
 
+  // поля ввода input
   &__form-input {
     font-family: 'Inter';
     font-weight: 400;
@@ -250,9 +265,9 @@
     border-radius: 4px;
     width: 100%;
     height: 38px;
-    outline: none;;
+    outline: none;
     background-color: colors.$lightgrey;
-    border: 1px solid colors.$lightgrey;
+    border: 1px solid transparent;
     color: colors.$black;
     padding: 12px 14px;
     
@@ -273,18 +288,21 @@
     }
   }
   
+  // поле ввода комментария клиента
   &__form-text {
     font-family: 'Inter';
     font-weight: 400;
     font-size: 12px;
-    width: 100%;
-    min-height: 120px;
-    outline: none;;
-    background-color: colors.$lightgrey;
-    border: 1px solid colors.$lightgrey;
     border-radius: 4px;
+    width: 100%;
+    // height: 38px;
+    outline: none;
+    background-color: colors.$lightgrey;
+    border: 1px solid transparent;
     color: colors.$black;
     padding: 12px 14px;
+    min-height: 120px;
+    resize: none;
 
     &::placeholder {
       color: colors.$grey;
@@ -304,28 +322,33 @@
   }
 
   &__form-fieldset {
+    border: 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    // gap: 12px;
     border: none;
   }
 
   &__form-legend {
+    margin-bottom: 16px;
   }
 
+  // переключение оплаты доставки
   &__form-label {
+    margin-bottom: 8px;
     display: flex;
-    justify-self: start;
+    // justify-self: start;
     align-items: center;
-    gap: 8px;
-  }
+    column-gap: 8px;
+}
 
-  &__form-radio {
-  }
+  // &__form-radio {
+  // }
 }
 
 .input {
-
+  // ?
+  
   &__item-counter {
     display: flex;
     justify-content: space-between;
@@ -337,7 +360,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 1.2;
-    color: #1c1c1c;
+    color: colors.$black;
   }
 }
 
@@ -345,17 +368,35 @@
 .counter {
   grid-area: counter;
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 12px;
+  width: 64px;
+  height: 24px;
+  padding: 11px 5px;
+  border: 1px solid colors.$lightgrey;
+  border-radius: 32px;
 
+  &:hover {
+    background-color: colors.$lightgrey;
+  }
+
+  
   &__button {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 24px;
     height: 24px;
-  
+    
+    &:hover {
+      background-color: colors.$lightgrey;
+    }
   }
 
   &__minus {
+
+
   }
 
   &__number {
