@@ -7,7 +7,6 @@
 // const __filename = url.fileURLToPath(import.meta.url);
 // const __dirname = path.basename(__filename);
 
-// console.log('hello api\n', `we will run at, ${PORT} port`);
 
 const express = require('express');
 const { PORT } = require('./var.js');
@@ -22,7 +21,6 @@ app.use('/img', express.static('db/img'));
 const loadData = async () => {
   const filePath = path.join(__dirname, 'db/goods.json')
   const data = await readFile(filePath, 'utf8');
-  console.log('filePath: ', filePath);
   const obj = JSON.parse(data);
   return obj;
 }
@@ -38,25 +36,25 @@ app.get('/goods', async (req, res) => {
     console.log('Welcome... goods');
     const updatedGoods = await sendData();
     // оформляем заголовки
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header("Access-Control-Allow-Origin", "*");
+    // отправляем обновленный список
     res.json(updatedGoods);
     // res.send('Welcome to our node express server');
     // res.send(JSON.stringify(updatedGoods))
-    console.log('JSON.stringify(updatedGoods): ', JSON.stringify(updatedGoods));
+    // console.log('JSON.stringify(updatedGoods): ', JSON.stringify(updatedGoods));
   } catch {
     res.send('Error');
   }
 })
 
 app.post('/product', async (req, res) => {
-  
   try {
     console.log('Welcome... PRODUCT post');
     console.log('req: ', req.body);
     // console.log('req: ', req.body);
     // const updatedGoods = await sendData();
     // оформляем заголовки
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header("Access-Control-Allow-Origin", "*");
     // res.json(updatedGoods);
     res.send('Welcome to our node express server PRODUCT');
     // res.send(JSON.stringify(updatedGoods))
@@ -73,4 +71,5 @@ app.get('/', async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server starts at port ${PORT}`);
+  // console.log('hello api\n', `we will run at, ${PORT} port`);
 })
