@@ -1,10 +1,11 @@
 import Navigo from "navigo";
 import { header } from "../components/header";
-import { footer } from "../components/footer";
 import { main } from "../components/main";
+import { footer } from "../components/footer";
 import { cart } from "../components/cart";
+import { catalog } from "../components/catalog";
 
-const router = new Navigo("/", { linksSelector: 'a[href^="/"]' });
+const router = new Navigo('/', { linksSelector: 'a[href^="/"]' });
 
 export const initRouter = () => {
 
@@ -12,32 +13,27 @@ export const initRouter = () => {
   console.log("init router 😃");
 
   router
-    .on("/", () => {
-      console.log("Главная страница");
-      document.body.prepend(header());
-      document.body.append(main())
-      document.body.append(footer());
+    .on('/', async () => {
+      console.log('Главная страница');
+      const goods = await getData();
+      header();
+      catalog(main(), goods);
+      productsList('Список товаров', goods, main());
+      footer();
     })
-    .on("/main", () => {
-      console.log("Main page");
-      document.body.prepend(header());
-      document.body.append(main())
-      document.body.append(footer());
-    })
-    .on("/favorite", () => {
+    
+    .on('/favorite', () => {
       console.log("Favorite page Избранное");
-      document.body.prepend(header());
-      document.body.append(footer());
+
     })
+    
     .on('/cart', async () => {
         console.log("Cart Корзина");
-        // const goods = await getData();
+        const goods = await getData();
+        const data = localStorageLoad('ski-people-cart');
         header();
-        cart(`Корзина товаров`, main(), localStorageLoad('ski-people-cart'))
+        cart(`Корзина товаров`, main(), data)
         footer();
-        // search();
-        // document.body.prepend(header());
-        // document.body.append(footer());
         router.updatePageLinks();
       },
       {
@@ -56,8 +52,6 @@ export const initRouter = () => {
             <h1 class="page__title">Title 404 PAGE</h1>
           </div>
         </main>`;
-      document.body.prepend(header());
-      document.body.append(footer());
       alert(404);
     });
 
