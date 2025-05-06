@@ -2,7 +2,14 @@
 // Контейнер конпонент .main
 // children содержимое контейнера main
 
+let rendered = false;
+
 export const main = (children) => {
+  
+  if (rendered) {
+    return document.querySelector('main');
+    
+  }
 
   // создаем элемент
   const el = document.createElement('main');
@@ -10,11 +17,11 @@ export const main = (children) => {
   // добавляем класс .container
   el.classList.add('main');
   
-  // вставляем текстовый код html внутрь контейнреа
-  // el.innerHTML = child;
   el.append(children);
 
-  el.innerHTML = `<h1 class="title">Inner Main Title</h1>`
-
+  document.body.append(el);
+  
+  rendered = true;
+  
   return el;
 }
