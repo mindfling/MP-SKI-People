@@ -17,12 +17,18 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 let count = 0;
+const counter = () => console.log(`\nrequest count: ${++count}`);
 
 
-// загружаем читаем данные
+// обработка статических ссылок
+app.use('/', express.static('public'));
+app.use('/img', express.static('db/img'));
+
+
+
+// читаем данные из файла
 const loadData = async () => {
-  const filePath = path.join(__dirname, './db/goods.json')
-  // console.log('filePath: ', filePath); /// Просто читаем файл
+  const filePath = path.join(__dirname, 'db/goods.json');
   const data = await readFile(filePath, 'utf8');
   const obj = JSON.parse(data);
   return obj;
@@ -34,35 +40,16 @@ const sendData = async () => {
   return data;
 }
 
-/*
-// // ? middleware use перебивает этот запрос
-// app.get('/', async (req, res) => {
-//   // todo request loger
-//   console.log('server gets / before');
-// })
 
-app.get('/', (req, res, next) => {
-  const filename = path.basename(req.url);
-  const extension = path.extname(filename);
-  // log file
-  next();
-})
-app.use(express.static(__dirname));
-*/
-
-// обработка статических ссылок
-app.use('/', express.static('public'));
-app.use('/img', express.static('db/img'));
-
-
-// обрабатываем запрос на список товаров
+// обрабатываем запрос на список товаров goods
 app.get('/goods', async (req, res) => {
   try {
-    console.log(`Welcome... goods: ${++count}`);
+    counter();
+    console.log('goods request');
     const updatedGoods = await sendData();
     // оформляем заголовки
     res.header("Access-Control-Allow-Origin", "*");
-    // отправляем обновленный список
+    // отправляем список 2 раза перепарсенный json
     res.json(updatedGoods);
   } catch {
     res.send('Server Error 400');
@@ -70,30 +57,40 @@ app.get('/goods', async (req, res) => {
 })
 
 
+// todo а что если клиенту отправить просто
+// СЫРУЮ строку из файла goods.json ?
+app.get('/allgoods', async (req, res) => {
+  counter();
+  console.log('allgoods request');
+  const filepath = path.join(__dirname, 'db/goods.json');
+  try {
+    const data = await readFile(filepath, 'utf8');
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Content-Type", "application/json");
+    res.send(data);
+  } catch (e) {
+    res.send(`Server read Error 400 ${e.message}`);
+  }
+})
+
+
+
+
 // выдаем информацию о товаре номер
 app.get("/page", async function(request, response){
-  // todo 
-  console.log(`\nrequest count: ${++count}`);
+  counter();
   try {
-    console.log(url.parse(request.url));
     const queryData = url.parse(request.url, true).query;
     const id = queryData.id;
-    console.log('id: ', id);
-    const allproducts = await sendData();
-    const product = allproducts.filter((item) => {
-      return item.id == +id + +count;
+    const products = await sendData();
+    const product = products.filter((item) => {
+      return item.id == id;
     });
-    console.log(`product with id ${id}:`);
-    console.log(product);
-    
+    console.log(`product with id ${id}:`, product);
     response.header("Access-Control-Allow-Origin", "*");
-    // response.send('Lets find product id')
-    // response.send(JSON.stringify(product));
-    response.json(product);
-    // response.send('Lets find product id' + JSON.stringify(product));
-    // response.send('Lets find product id' + JSON.stringify(request))
-  } catch {
-    response.send('Server product Error 404')
+    response.json(product); // Отправляем json product
+  } catch { 
+    response.send('Server page Error 404');
   }
 })
 
@@ -106,13 +103,10 @@ app.get('/product', async (req, res) => {
     console.log('id: ', id);
     const products = await loadData();
     const product = products.filter( item => item.id == id);
-    console.log('product: ', product);
     console.log('product: ', product[0].img);
     const imgfile = product[0].img;
 
     res.header("Access-Control-Allow-Origin", "*");
-    // res.json(product); // Отправить json
-    // const skifile = path.join(__dirname, `./db/img/ski${id}.png`)
     const skifile = path.join(__dirname, `./db/img/${imgfile}`);
     console.log('Отправляем файл: ', skifile);
     res.sendFile(skifile); // Отправиль файл
