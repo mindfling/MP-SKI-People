@@ -1,16 +1,15 @@
 // * footer.js
 import { layout } from "./layout";
 
-let rendered = false;
+let rendered = false; // ? а когда мы видим эту переменную ?
 
 export const footer = () => {
-  console.log('footer');
   
   if (rendered) {
     return '';
   }
 
-  const el = document.createElement('footer');
+  const el = document.createElement('footer'); // создаем наш футер
   el.classList.add('footer');
 
   const footerChild = `

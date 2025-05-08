@@ -1,8 +1,15 @@
 // * header.js
 import { layout } from "./layout";
 
+let rendered = false;
+
+
 export const header = () => {
   console.log("header componet");
+  
+  if (rendered) {
+    return '';
+  }
 
   const el = document.createElement("header");
   el.classList.add("header");
