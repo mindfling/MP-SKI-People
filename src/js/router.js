@@ -4,6 +4,7 @@ import { main } from "../components/main";
 import { footer } from "../components/footer";
 import { cart } from "../components/cart";
 import { catalog } from "../components/catalog";
+import { getData, loadData } from "./api";
 
 const router = new Navigo('/', { linksSelector: 'a[href^="/"]' });
 
@@ -16,34 +17,39 @@ export const initRouter = () => {
     .on('/', async () => {
       console.log('Главная страница');
       const goods = await getData();
+      
       header();
+      // main(catalog());
       catalog(main(), goods);
-      productsList('Список товаров', goods, main());
+      // productsList('Список товаров', goods, main());
       footer();
     })
     
     .on('/favorite', () => {
-      console.log("Favorite page Избранное");
+      console.log("Favorite⭐ page Избранное");
 
+      header();
+      footer();
     })
-    
+
     .on('/cart', async () => {
-        console.log("Cart Корзина");
-        const goods = await getData();
-        const data = localStorageLoad('ski-people-cart');
-        header();
-        cart(`Корзина товаров`, main(), data)
-        footer();
-        router.updatePageLinks();
+        console.log("Cart🛒 Корзина");
+        // const goods = await getData();
+        // const data = localStorageLoad('ski-people-cart');
+        // header();
+        // cart(`Корзина товаров`, main(), data)
+        // footer();
+        // router.updatePageLinks();
       },
-      {
-        leave(done) {
-          console.log('leave Оставляем корзину');
-          // productsList('remove');
-          done();
-        }
-      }
+      // {
+      //   leave(done) {
+      //     console.log('leave Оставляем корзину');
+      //     // productsList('remove');
+      //     done();
+      //   }
+      // }
     )
+
     .notFound(() => {
       console.log("page 404");
       document.body.innerHTML = `
@@ -52,7 +58,6 @@ export const initRouter = () => {
             <h1 class="page__title">Title 404 PAGE</h1>
           </div>
         </main>`;
-      alert(404);
     });
 
   router.resolve();
