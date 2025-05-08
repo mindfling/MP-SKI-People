@@ -3,12 +3,14 @@
 // children содержимое контейнера main
 
 let rendered = false;
+let maincount = 0;
 
 export const main = (children) => {
-  
+  console.log('main', ++maincount);
+  console.log('children: ', children);
+
   if (rendered) {
     return document.querySelector('main');
-    
   }
 
   // создаем элемент
@@ -17,10 +19,15 @@ export const main = (children) => {
   // добавляем класс .container
   el.classList.add('main');
   
-  el.append(children);
-
+  // добавляем всех детей
+  if (children) {
+    el.append(children);
+  }
+  
+  // монтируем все это на страницу
   document.body.append(el);
   
+  // готово
   rendered = true;
   
   return el;
