@@ -4,6 +4,7 @@ import { main } from "../components/main";
 import { footer } from "../components/footer";
 import { cart } from "../components/cart";
 import { catalog } from "../components/catalog";
+import { productList } from "../components/productList";
 import { getData, loadData } from "./api";
 
 const router = new Navigo('/', { linksSelector: 'a[href^="/"]' });
@@ -21,12 +22,21 @@ export const initRouter = () => {
       header();
       // main(catalog());
       catalog(main(), goods);
-      // productsList('Список товаров', goods, main());
+      productList('Список товаров', goods, main());
       footer();
     })
     
-    .on('/favorite', () => {
+    .on('/favorite', async () => {
       console.log("Favorite⭐ page Избранное");
+      const goods = await loadData();
+
+      header();
+      productList('Избранное', goods, main());
+      footer();
+    })
+
+    .on('/product', async () => {
+      console.log('Страница товара продукта');
 
       header();
       footer();
@@ -36,15 +46,15 @@ export const initRouter = () => {
         console.log("Cart🛒 Корзина");
         // const goods = await getData();
         // const data = localStorageLoad('ski-people-cart');
-        // header();
+        header();
         // cart(`Корзина товаров`, main(), data)
-        // footer();
-        // router.updatePageLinks();
+        footer();
+        router.updatePageLinks();
       },
       // {
       //   leave(done) {
       //     console.log('leave Оставляем корзину');
-      //     // productsList('remove');
+      //     // productList('remove');
       //     done();
       //   }
       // }
