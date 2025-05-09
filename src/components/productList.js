@@ -6,7 +6,7 @@ import { LOCAL } from "../js/const";
 let rendered = false;
 
 export const productList = (title, data = [], parent) => {
-  console.log("product list data: ", data);
+  // console.log("product list data: ", data);
 
   if (rendered) {
     return "";
@@ -18,12 +18,11 @@ export const productList = (title, data = [], parent) => {
     return;
   }
 
+  // одна штука товара
   let goodsItem = '';
 
   // добавляем каждый html товара
-  data.forEach(item => {
-    const { id, price, img, name } = item;
-    console.log('id, price, img, name: ', id, price, img, name);
+  data.forEach(({ id, price, img, name }) => {
     goodsItem += `
       <li class="goods__item">
         <article class="goods__card card">
@@ -48,32 +47,13 @@ export const productList = (title, data = [], parent) => {
   const el = document.createElement("section");
   el.classList.add("goods");
 
+  // todo pagination() 
   const child = `
     <h2 class="goods__title goods__title_favorites">${title}</h2>
 
     <!-- ТОВАРЫ -->
     <ul class="goods__list">
-
       ${goodsItem}
-
-      <li class="goods__item">
-        <article class="goods__card card">
-          <a class="card__link" href="/product">
-            <img class="card__image" src="/img/products/ski-mount.png" alt="товар горные синие лыжи">
-          </a>
-          <button class="card__like-button">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z" fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>                  
-          </button>
-          <div class="card__info">
-            <h3 class="card__info-title">Горные&nbsp;лыжи</h3>
-            <p class="card__info-price">5000&nbsp;&#8381;</p>
-          </div>
-          <button class="card__button">В&nbsp;корзину</button>
-        </article>
-      </li>
-
     </ul>
 
     <!-- ПАГИНАЦИЯ ВНИЗУ -->
@@ -112,6 +92,24 @@ export const productList = (title, data = [], parent) => {
 
   el.append(layout(child, "goods__container"));
   parent.append(el);
+
+  rendered = true;
+
+  const catalogButton = document.querySelector('.catalog');
+  console.log('catalogButton: ', catalogButton);
+  if (catalogButton) {
+    catalogButton.addEventListener('click', e => {
+      // toggle активную ссылку каталога 
+      if (e.target.matches('a')) {
+        console.log('ссылка', e.target.textContent);
+        e.target.classList.toggle('catalog__link_active');
+      
+        const refreshList = data.filter(item => (item.type === e.target.textContent));
+      }
+      console.log(e.target);
+
+    })
+  }
 
   return el;
 };
