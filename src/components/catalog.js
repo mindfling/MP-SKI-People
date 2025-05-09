@@ -1,52 +1,47 @@
 // catalog.js Выбор КАТЕГОРИИ ТОВАРОВ
-import { layout } from './layout';
+import { layout } from "./layout";
 
 let rendered = false;
 
 export const catalog = (parent, data = []) => {
-  console.log(`catalog data`, data);
-
-  // todo типы товаров draft
-  const types = data.map(item => item.type);
-
-  // const typeSet = new Set(types);
-
-  const typeList = Array.from( new Set(types) );
-  console.log('typeList: ', typeList, typeList.length);
 
   if (rendered) {
-    return '';
+    return document.querySelector('.catalog');
   }
 
-  const el = document.createElement('div');
-  el.classList.add('catalog');
+  // todo типы товаров draft
+  const types = data.map((item) => item.type);
 
-  const catalogChild = `
+  // собираем все категории types товаров
+  const typeList = Array.from(new Set(types));
+
+  const el = document.createElement("div");
+  el.classList.add("catalog");
+
+  const catalogItems = `
     <ul class="catalog__list">
-      <li class="catalog__item">
-        <a 
-          class="catalog__link catalog__link_active"
-          href="#all"
-          title="Отобразить ВСЕ категории товаров">
-            все
-        </a>
-      </li>
-      ${typeList.reduce((acc, currtype, i) => {
-          return acc + `
-      <li class="catalog__item">
-        <a 
-          class="catalog__link catalog__link_active1"
-          href="#all"
-          title="Отобразить категории товаров ${currtype}"
-        >${currtype}</a>
-      </li>
-          `;
-        }, '')}
+      ${typeList.reduce((acc, currtype, i) => (acc + `
+        <li class="catalog__item">
+          <a 
+            class="catalog__link"
+            href="#?s=${currtype}"
+            title="Отобразить категории товаров ${currtype}"
+          >${currtype}</a>
+        </li>
+      `), `
+        <li class="catalog__item">
+          <a 
+            class="catalog__link catalog__link_active"
+            href="#all"
+            title="Отобразить ВСЕ категории товаров"
+          >ВСЕ</a>
+        </li>
+      `)}
     </ul>
     `;
 
   // обарачиваем в контейнер
-  el.append(layout(catalogChild, 'catalog__container'));
+  el.append(layout(catalogItems, "catalog__container"));
 
   if (parent) {
     parent.append(el);
@@ -56,7 +51,6 @@ export const catalog = (parent, data = []) => {
 
   return el;
 };
-
 
 /*
   const catalogChild = `
