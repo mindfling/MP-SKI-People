@@ -16,7 +16,7 @@ export const header = () => {
 
   const headerChild = `
     <div class="header__wrapper">
-      <a class="header__logo-link header__link" href="/main" title="Переход на главную страницу" aria-label="Переход на главную страницу">
+      <a class="header__logo-link header__link" href="/" title="Переход на главную страницу" aria-label="Переход на главную страницу">
         <img class="header__logo-image logo" src="/img/logo.svg" alt="Логотип SKI-People" />
       </a>
 
@@ -56,7 +56,8 @@ export const header = () => {
 
   el.append(layout(headerChild, "header__container"));
   
-  document.body.append(el);
+  document.body.prepend(el);
+  // document.body.append(el);
   
   rendered = true;
 

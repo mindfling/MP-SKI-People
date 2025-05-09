@@ -4,6 +4,7 @@ import { layout } from "./layout";
 let rendered = false; // ? а когда мы видим эту переменную ?
 
 export const footer = () => {
+  console.log("footer componet");
   
   if (rendered) {
     return '';
