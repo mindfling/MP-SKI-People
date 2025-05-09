@@ -13,7 +13,6 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    gap: 25px;
     gap: 40px;
   }
 
@@ -84,11 +83,43 @@
     }
   }
 
+  // todo like button heart
   &__like-button {
     position: absolute;
-    // content: '';
     top: 12px;
     right: 12px;
+    scale: 1.1;
+    opacity: .5;
+    transition: scale 200ms ease;
+
+    &:hover {
+      scale: 1.8;
+      opacity: 1;
+    }
+
+    & > svg > path {
+      fill: colors.$white;
+      stroke: colors.$black
+    }
+      
+    &:hover > svg > path {
+      fill: colors.$blue;
+      stroke: colors.$white;
+    }
+    
+    &_active {
+      opacity: 1;
+        
+      &:hover > svg > path {
+        fill: colors.$white;
+        stroke: colors.$blue;
+      }
+    }
+
+    &_active > svg > path {
+      fill: colors.$blue;
+      stroke: colors.$blue;
+    }
   }
 
   &__info {
@@ -96,15 +127,18 @@
     flex-direction: column;
     margin-bottom: 12px;
     gap: 18px;
-
+    min-height: 68px;
+    
     @media (min-width: 768px) {
       flex-direction: row;
       justify-content: space-between;
       margin-bottom: 37px;
+      min-height: 38px;
     }
-
+    
     @media (min-width: 1024px) {
       margin-bottom: 18px;
+      min-height: max-content;
     }
     
     &-title {

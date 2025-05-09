@@ -52,8 +52,11 @@
   display: block;
   width: 32px;
   height: 32px;
+  scale: 1;
+  transition: scale 300ms ease;
+  
   &:hover {
-    background-color: colors.$lightgrey;
+    scale: 1.2;
   }
 }
 
