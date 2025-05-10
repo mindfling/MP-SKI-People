@@ -6,8 +6,6 @@ let rendered = false;
 let maincount = 0;
 
 export const main = (children) => {
-  console.log('main', ++maincount);
-  console.log('children: ', children);
 
   if (rendered) {
     return document.querySelector('main');

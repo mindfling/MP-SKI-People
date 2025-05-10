@@ -3,38 +3,44 @@
 import { layout } from "./layout";
 import { LOCAL } from "../js/const";
 import { pagination } from "./pagination";
+import { loadFavorite } from "../js/localstorage";
 
 let rendered = false;
 
 
 export const productList = (title, data = [], parent) => {
+  console.log('title, data = [], parent: ', title, data, parent);
 
-  if (rendered) {
-    return "";
-  }
-
+  // if (rendered) {
+  //   return "";
+  // }
+  
   if (title === 'remove') {
-    // здесь очищаем корзину
-    document.querySelector('.product').remove();
+    console.log('здесь очищаем список товаров', document.querySelector('.goods'))
+    document.querySelector('.goods').remove();
     rendered = false;
     return;
   }
 
+  const favoriteList = loadFavorite();
+  console.log('product list favoriteList: ', favoriteList);
 
-  const getGoodsItems = (data) => {
+
+  const render = (data) => {
     // одна штука товара
     let goodsItem = '';
     // добавляем каждый html товара
     data.forEach(({ id, price, img, name, type }) => {
+      // const isInFavorite = false;
       goodsItem += `
         <li class="goods__item">
           <article class="goods__card card">
             <a class="card__link" href="/product?id=${id}" title="Товар ${name} цена ${price} ₽">
               <img class="card__image" src="${LOCAL}/img${img}" alt="Товар ${name}">
             </a>
-            <button class="card__like-button" title="Добавить в избранное">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z" fill="white" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round"/>
+            <button class="card__like-button ${favoriteList.find(item => item.id == id) ? 'card__like-button_active' : '' }" title="Добавить товар ${name} в избранное" data-id="${id}">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.41301 13.8733C8.18634 13.9533 7.81301 13.9533 7.58634 13.8733C5.65301 13.2133 1.33301 10.46 1.33301 5.79332C1.33301 3.73332 2.99301 2.06665 5.03967 2.06665C6.25301 2.06665 7.32634 2.65332 7.99967 3.55998C8.67301 2.65332 9.75301 2.06665 10.9597 2.06665C13.0063 2.06665 14.6663 3.73332 14.6663 5.79332C14.6663 10.46 10.3463 13.2133 8.41301 13.8733Z" fill="currentColor" stroke="#1C1C1C" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
             <div class="card__info">
@@ -46,7 +52,6 @@ export const productList = (title, data = [], parent) => {
         </li>
       `;
     });
-
     return goodsItem;
   };
 
@@ -56,7 +61,7 @@ export const productList = (title, data = [], parent) => {
 
     <!-- ТОВАРЫ -->
     <ul class="goods__list">
-      ${getGoodsItems(data)}
+      ${render(data)}
     </ul>
 
     <!-- ПАГИНАЦИЯ ВНИЗУ -->
@@ -79,7 +84,7 @@ export const productList = (title, data = [], parent) => {
   if (catalogButton) {
     catalogButton.addEventListener('click', e => {
 
-      if (e.target.closest('a')) {
+      if (e.target.matches('a')) {
         // todo сделать лучше
         // очищаем все
         catalogButton.querySelectorAll('.catalog__link')
@@ -94,15 +99,15 @@ export const productList = (title, data = [], parent) => {
         if (e.target.textContent.toString().toLowerCase() === 'все') {
           //перестраиваем BCE product
           console.log('отдаем все товары');
-          goodslist.innerHTML = getGoodsItems(data);
+          goodslist.innerHTML = render(data);
           goodstitle.innerHTML = title;
           
         } else {
           //перестраиваем product list
           const refreshList = data.filter(item =>
             (item.type.toString().toLowerCase() === text.toString().toLowerCase()));
-          console.log('refreshList: ', refreshList);
-          goodslist.innerHTML = getGoodsItems(refreshList);
+          console.log('\x1b[36m%s\x1b[0m', 'Обновленный список товаров refreshList: ', refreshList);
+          goodslist.innerHTML = render(refreshList);
           goodstitle.innerHTML = `${title} ${text}`;
         }
       }

@@ -1,5 +1,6 @@
+//todo my
 export const pagination = (number, allnumber) => {
-  console.log(`pagination ${number} of ${allnumber}`);
+  // console.log(`pagination ${number} of ${allnumber}`);
 
   if (number && allnumber) {
     return `

@@ -5,9 +5,8 @@ import { layout } from './layout';
 let rendered = false;
 
 export const cart = (title, parent, data = []) => {
-  console.log('inside component cart');
+  console.log('cart component');
 
-  // isRemove
   if (title === 'remove') {
     document.querySelector('.cart').remove();
     rendered = false;
@@ -23,17 +22,15 @@ export const cart = (title, parent, data = []) => {
 
   // в других случаях рендерим верстку
   const child = `
-    <h2 class="cart__title">${title}</h2>
+    <!-- CART КОРЗИНА -->
+    <h2 class="cart__title">Корзина</h2>
 
-    <div className="cart__wrapper">
+    <div class="cart__wrapper">
+
       <ul class="cart__list">
         <li class="cart__item">
-          <img
-            src="/img/products/ski-blue-mini.png"
-            alt="Синие горные лыжи на снегу"
-            title="Синие горные лыжи на снегу"
-            class="cart__item-image"
-          />
+          <img src="/img/products/ski-blue-mini.png" alt="Синие горные лыжи на снегу" 
+            title="Синие горные лыжи на снегу" class="cart__item-image" />
           <h3 class="cart__item-title">Горные&nbsp;лыжи</h3>
           <p class="cart__item-price">5&nbsp;000&nbsp;₽</p>
           <p class="cart__item-id">арт.&nbsp;84348945757</p>
@@ -44,12 +41,8 @@ export const cart = (title, parent, data = []) => {
           </div>
         </li>
         <li class="cart__item">
-          <img
-            src="/img/products/ski-blue-mini.png"
-            alt="Синие горные лыжи на снегу"
-            title="Синие горные лыжи на снегу"
-            class="cart__item-image"
-          />
+          <img src="/img/products/ski-blue-mini.png" alt="Синие горные лыжи на снегу"
+            title="Синие горные лыжи на снегу" class="cart__item-image" />
           <h3 class="cart__item-title">Горные&nbsp;лыжи</h3>
           <p class="cart__item-price">5&nbsp;000&nbsp;₽</p>
           <p class="cart__item-id">арт.&nbsp;84348945757</p>
@@ -60,12 +53,8 @@ export const cart = (title, parent, data = []) => {
           </div>
         </li>
         <li class="cart__item">
-          <img
-            src="/img/products/ski-blue-mini.png"
-            alt="Синие горные лыжи на снегу"
-            title="Синие горные лыжи на снегу"
-            class="cart__item-image"
-          />
+          <img src="/img/products/ski-blue-mini.png" alt="Синие горные лыжи на снегу"
+            title="Синие горные лыжи на снегу" class="cart__item-image" />
           <h3 class="cart__item-title">Горные&nbsp;лыжи</h3>
           <p class="cart__item-price">5&nbsp;000&nbsp;₽</p>
           <p class="cart__item-id">арт.&nbsp;84348945757</p>
@@ -94,59 +83,28 @@ export const cart = (title, parent, data = []) => {
         <h3 class="cart__form-title">Данные для доставки</h3>
 
         <fieldset class="cart__form-inputs">
-          <input 
-            type="text" 
-            name="name" 
-            class="cart__form-input" 
-            placeholder="Фамилия Имя Отчество"
+          <input type="text" name="name" class="cart__form-input" placeholder="Фамилия Имя Отчество"
             title="Ввести имя заказчика" />
-          <input 
-            type="tel" 
-            name="tel" 
-            class="cart__form-input" 
-            placeholder="Телефон" 
+          <input type="tel" name="tel" class="cart__form-input" placeholder="Телефон"
             title="Ввести номер телефона заказчика" />
-          <input 
-            type="email" 
-            name="email" 
-            class="cart__form-input" 
-            placeholder="E-mail"
+          <input type="email" name="email" class="cart__form-input" placeholder="E-mail"
             title="Ввести адрес электронной почты для электронного чека" />
-          <input 
-            type="text" 
-            name="address" 
-            class="cart__form-input" 
-            placeholder="Адрес доставки"
+          <input type="text" name="address" class="cart__form-input" placeholder="Адрес доставки"
             title="Ввести адрес доставки" />
-          <textarea
-            class="cart__form-text"
-            name="comment"
-            id="comment"
-            placeholder="Комментарий к заказу"
-            title="Ввести комментарии заказчика"
-          ></textarea>
+          <textarea class="cart__form-text" name="comment" id="comment" placeholder="Комментарий к заказу"
+            title="Ввести комментарии заказчика"></textarea>
         </fieldset>
 
         <fieldset class="cart__form-fieldset">
           <legend class="cart__form-legend">Доставка</legend>
           <label class="cart__form-label">
-            <input
-              class="cart__form-radio"
-              type="radio"
-              value="delivery"
-              name="delivery"
-              title="Доставка к клиенту"
-            />
+            <input class="cart__form-radio" type="radio" value="delivery" name="delivery"
+              title="Доставка к клиенту" />
             Доставка
           </label>
           <label class="cart__form-label">
-            <input
-              class="cart__form-radio"
-              type="radio"
-              value="pickup"
-              name="delivery"
-              title="Получение клиентом самовывозом"
-            />
+            <input class="cart__form-radio" type="radio" value="pickup" name="delivery"
+              title="Получение клиентом самовывозом" />
             Самовывоз
           </label>
         </fieldset>
@@ -154,27 +112,18 @@ export const cart = (title, parent, data = []) => {
         <fieldset class="cart__form-fieldset">
           <legend class="cart__form-legend">Оплата</legend>
           <label class="cart__form-label">
-            <input
-              class="cart__form-radio"
-              type="radio"
-              value="card"
-              name="payment"
-              title="Выбор оплаты банковской картой при получении"
-            />
+            <input class="cart__form-radio" type="radio" value="card" name="payment"
+              title="Выбор оплаты банковской картой при получении" />
             Картой при получении
           </label>
           <label class="cart__form-label">
-            <input
-              class="cart__form-radio"
-              type="radio"
-              value="cash"
-              name="payment"
-              title="Выбор оплаты наличными при получении"
-            />
+            <input class="cart__form-radio" type="radio" value="cash" name="payment"
+              title="Выбор оплаты наличными при получении" />
             Наличными при получении
           </label>
         </fieldset>
       </form>
+
     </div>
   `;
 
