@@ -8,6 +8,7 @@ import { productList } from "../components/productList";
 import { getData, loadData } from "./api";
 import { addFavorite } from "./addFavorite";
 import { loadCart, loadFavorite, localStorageLoad } from "./localstorage";
+import { product } from "../components/product";
 
 const router = new Navigo("/", { linksSelector: 'a[href^="/"]' });
 
@@ -31,7 +32,7 @@ export const initRouter = () => {
 
         addFavorite(goods);
 
-        router.updatePageLinks();
+        // router.updatePageLinks();
       }, {
         leave(done) {
           console.log('\x1b[35m%s\x1b[0m', 'leave Главную страницу');
@@ -47,10 +48,16 @@ export const initRouter = () => {
       
       header();
       // product(Slider())
+      product('Товар', main());
       footer();
-
-      router.updatePageLinks();
-    })
+      }, {
+        leave(done) {
+          console.log('\x1b[35m%s\x1b[0m', 'leave Закрываем Product');
+          product('remove');
+          done();
+        }
+      }
+    )
 
     .on("/favorite", async () => {
         console.log('\x1b[32m%s\x1b[0m', 'Favorite⭐ page Избранное');
@@ -62,7 +69,6 @@ export const initRouter = () => {
 
         addFavorite(goods);
 
-        router.updatePageLinks();
       }, {
         leave(done) {
           console.log('\x1b[35m%s\x1b[0m', 'leave Закрываем Избранное');
@@ -82,7 +88,6 @@ export const initRouter = () => {
         cart(`Корзина товаров`, main(), cartList);
         footer();
       
-        router.updatePageLinks();
       }, {
         leave(done) {
           console.log('\x1b[35m%s\x1b[0m', "leave Оставляем корзину");
