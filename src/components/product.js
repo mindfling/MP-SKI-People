@@ -1,6 +1,7 @@
 // ** product.js **
 // КАРТОЧКА СТРАНИЦА ТОВАРА
 
+import { LOCAL } from "../js/const";
 import { layout } from "./layout";
 
 let rendered = false;
@@ -28,22 +29,22 @@ export const product = (title, parent) => {
         <div class="swiper product__slider-main">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img class="product__slider-image" src="/img/photo.png" />
+              <img class="product__slider-image" src="${LOCAL}/img/ski1.png" />
             </div>
             <div class="swiper-slide">
-              <img class="product__slider-image" src="/img/photo2.png" />
+              <img class="product__slider-image" src="${LOCAL}/img/ski2.png" />
             </div>
             <div class="swiper-slide">
-              <img class="product__slider-image" src="/img/photo.png" />
+              <img class="product__slider-image" src="${LOCAL}/img/ski3.png" />
             </div>
             <div class="swiper-slide">
-              <img class="product__slider-image" src="/img/photo2.png" />
+              <img class="product__slider-image" src="${LOCAL}/img/ski4.png" />
             </div>
             <div class="swiper-slide">
-              <img class="product__slider-image" src="/img/photo.png" />
+              <img class="product__slider-image" src="${LOCAL}/img/ski5.png" />
             </div>
             <div class="swiper-slide">
-              <img class="product__slider-image" src="/img/photo2.png" />
+              <img class="product__slider-image" src="${LOCAL}/img/ski6.png" />
             </div>
           </div>
           <button type="button" class="product__slider-arrow product__slider-arrow_prev">
@@ -64,28 +65,28 @@ export const product = (title, parent) => {
         <div class="swiper product__slider-thumbs slider-thumbs">
           <div class="swiper-wrapper">
             <div class="swiper-slide slider-thumbs__item" class="swiper-slide">
-              <img class="slider-thumbs__image" src="/img/photo.png" />
+              <img class="slider-thumbs__image" src="${LOCAL}/img/ski1.png" />
             </div>
             <div class="swiper-slide slider-thumbs__item" class="swiper-slide">
-              <img class="slider-thumbs__image" src="/img/photo2.png" />
+              <img class="slider-thumbs__image" src="${LOCAL}/img/ski2.png" />
             </div>
             <div class="swiper-slide slider-thumbs__item" class="swiper-slide">
-              <img class="slider-thumbs__image" src="/img/photo.png" />
+              <img class="slider-thumbs__image" src="${LOCAL}/img/ski3.png" />
             </div>
             <div class="swiper-slide slider-thumbs__item" class="swiper-slide">
-              <img class="slider-thumbs__image" src="/img/photo2.png" />
+              <img class="slider-thumbs__image" src="${LOCAL}/img/ski4.png" />
             </div>
             <div class="swiper-slide slider-thumbs__item" class="swiper-slide">
-              <img class="slider-thumbs__image" src="/img/photo.png" />
+              <img class="slider-thumbs__image" src="${LOCAL}/img/ski5.png" />
             </div>
             <div class="swiper-slide slider-thumbs__item" class="swiper-slide">
-              <img class="slider-thumbs__image" src="/img/photo2.png" />
+              <img class="slider-thumbs__image" src="${LOCAL}/img/ski6.png" />
             </div>
             <div class="swiper-slide slider-thumbs__item" class="swiper-slide">
-              <img class="slider-thumbs__image" src="/img/photo.png" />
+              <img class="slider-thumbs__image" src="${LOCAL}/img/ski7.png" />
             </div>
             <div class="swiper-slide slider-thumbs__item" class="swiper-slide">
-              <img class="slider-thumbs__image" src="/img/photo2.png" />
+              <img class="slider-thumbs__image" src="${LOCAL}/img/ski8.png" />
             </div>
           </div>
         </div>
