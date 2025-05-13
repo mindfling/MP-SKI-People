@@ -4,18 +4,34 @@ import { layout } from "./layout";
 
 let rendered = false;
 
-export const breadcrumb = (action, parent) => {
+export const breadcrumb = (action, parent, data) => {
+  console.log('breadcrumb data: ', data);
 
   if ( action === 'remove' ) {
-    document.querySelector('.breadcrumb');
+    document.querySelector('.breadcrumb').remove();
     rendered = false;
-    return '';
+    return;
   }
 
   if ( rendered ) {
-    return document.querySelector('.breadcrumb');
+    return '';
   }
 
+
+  const listItems = data.map((item) => {
+    return `
+  <li class="breadcrumb__item">
+    <a 
+      class="breadcrumb__link" 
+      href="${item.href}" 
+      title="Вернуться в категорию ${item.title}"
+    >
+      ${item.title}
+    </a>
+  </li>
+    `;
+  }).join('');
+  console.log('listItems: ', listItems);
 
   const el = document.createElement('div');
   el.classList.add('breadcrumb');
@@ -24,17 +40,7 @@ export const breadcrumb = (action, parent) => {
     <!-- ХЛЕБНЫЕ КРОШКИ -->
     <nav class="breadcrumb__navigation">
       <ul class="breadcrumb__list">
-        <li class="breadcrumb__item">
-          <a class="breadcrumb__link" href="#" title="Вернуться на Главную">Главная</a>
-        </li>
-
-        <li class="breadcrumb__item">
-          <a class="breadcrumb__link" href="#" title="Вернуться на категорию Лыжи">Лыжи</a>
-        </li>
-
-        <li class="breadcrumb__item">
-          <a class="breadcrumb__link" href="#" title="Вернуться на категорию Горные лыжи">Горные лыжи</a>
-        </li>
+        ${listItems}
       </ul>
     </nav>
   `;

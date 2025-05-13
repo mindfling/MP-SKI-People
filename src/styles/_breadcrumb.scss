@@ -36,18 +36,24 @@
     display: flex;
     font-weight: 400;
     font-size: 12px;
-    line-height: 1.2;
     color: colors.$grey;
 
-    &::after {
+    &:not(:last-child)::after {
       display: block;
-      // symbol colors.$gt;
-      content: '\003E'; 
+      content: '\003e';
       translate: 10px;
+      // padding-left: 6px;
     }
-    &:last-child:after {
-      content: '';
-    }
+
+    // &::after {
+    //   display: block;
+    //   // symbol colors.$gt;
+    //   content: '\003E'; 
+    //   translate: 10px;
+    // }
+    // &:last-child:after {
+    //   content: '';
+    // }
   }
 
   &__link {
