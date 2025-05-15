@@ -9,7 +9,7 @@
     "color": "Бордовый",
     "max_weight": "80 кг",
     "type": "Сноуборды",
-    "img": "/snowboard28.jpg",
+    "img": "/snowboard1.png",
     "name": "Сноуборд Storm X"
   },
   {
@@ -87,7 +87,7 @@
     "color": "Голубой",
     "max_weight": "75 кг",
     "type": "Шлем",
-    "img": "/helmet10.jpg",
+    "img": "/protection4.png",
     "name": "Шлем Force One"
   },
   {
@@ -217,7 +217,7 @@
     "color": "Оранжевый",
     "max_weight": "86 кг",
     "type": "Сноуборды",
-    "img": "/snowboard28.jpg",
+    "img": "/snowboard1.png",
     "name": "Сноуборд Ice Hunter"
   },
   {
@@ -243,7 +243,7 @@
     "color": "Мятный",
     "max_weight": "95 кг",
     "type": "Шлем",
-    "img": "/helmet12.jpg",
+    "img": "/protection2.png",
     "name": "Шлем Xtreme Core"
   },
   {
@@ -334,7 +334,7 @@
     "color": "Голубой",
     "max_weight": "85 кг",
     "type": "Защита",
-    "img": "/protection10.jpg",
+    "img": "/protection1.png",
     "name": "Налокотники Trust Arm Shield"
   },
   {
@@ -464,7 +464,7 @@
     "color": "Белый",
     "max_weight": "80 кг",
     "type": "Шлем",
-    "img": "/helmet11.jpg",
+    "img": "/protection5.png",
     "name": "Шлем Trust Safe Pro"
   },
   {
@@ -659,7 +659,7 @@
     "color": "Песочный",
     "max_weight": "127 кг",
     "type": "Шлем",
-    "img": "/helmet10.jpg",
+    "img": "/protection5.png",
     "name": "Шлем Glacier Safe"
   },
   {
@@ -932,7 +932,7 @@
     "color": "Жёлтый",
     "max_weight": "110 кг",
     "type": "Сноуборды",
-    "img": "/snowboard28.jpg",
+    "img": "/snowboard1.png",
     "name": "Сноуборд Ice Hunter"
   },
   {
@@ -1062,7 +1062,7 @@
     "color": "Красный",
     "max_weight": "105 кг",
     "type": "Шлем",
-    "img": "/helmet12.jpg",
+    "img": "/protection5.png",
     "name": "Шлем Glacier Safe"
   },
   {
@@ -1088,8 +1088,8 @@
     "color": "Чёрный",
     "max_weight": "140 кг",
     "type": "Защита",
-    "img": "/protection12.jpg",
-    "name": "Налокотники Trust Arm and Knees"
+    "img": "/protection2.png",
+    "name": "Налокотники Trust Arm Shield"
   },
   {
     "id": 85,
@@ -1257,7 +1257,7 @@
     "color": "Фиолетовый",
     "max_weight": "80 кг",
     "type": "Защита",
-    "img": "/protection11.jpg",
+    "img": "/protection3.png",
     "name": "Налокотники SnowArmor"
   },
   {
