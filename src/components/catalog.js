@@ -3,11 +3,12 @@ import { layout } from "./layout";
 
 let rendered = false;
 
-export const catalog = (parent, data = []) => {
+export const catalog = (action, parent, data = []) => {
   console.log('catalog component');
 
-  if (!parent || parent === "remove") {
+  if (action === 'remove') {
     console.log('\x1b[35m%s\x1b[0m', 'catalog remove');
+    // удалаяем .catalog
     document.querySelector('.catalog').remove();
     rendered = false;
   }

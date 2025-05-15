@@ -9,16 +9,15 @@ import { getData, loadData } from "./api";
 import { addFavorite } from "./addFavorite";
 import { loadCart, loadFavorite, localStorageLoad } from "./localstorage";
 import { product } from "../components/product";
+import { breadcrumb } from "../components/breadcrumb";
 
 const router = new Navigo("/", { linksSelector: 'a[href^="/"]' });
 
 export const initRouter = () => {
-  // my init router
   console.log("init router 😃");
 
   const href = window.location.href;
   const url = document.URL;
-  // console.log('url page is', href, url);
 
   router
     .on("/", async () => {
@@ -26,17 +25,17 @@ export const initRouter = () => {
         const goods = await getData();
 
         header();
-        catalog(main(), goods);
+        catalog('', main(), goods);
         productList("Список товаров", goods, main());
         footer();
 
         addFavorite(goods);
 
-        // router.updatePageLinks();
+        router.updatePageLinks();
       }, {
         leave(done) {
           console.log('\x1b[35m%s\x1b[0m', 'leave Главную страницу');
-          catalog()
+          catalog('remove');
           productList('remove');
           done();
         },
@@ -44,12 +43,18 @@ export const initRouter = () => {
     )
 
     .on("/product", async () => {
-      console.log("Страница товара продукта");
+      console.log('\x1b[35m%s\x1b[0m', "Product Страница товара продукта");
       
       header();
-      // product(Slider())
+        breadcrumb('', main(), [
+          { title: 'Главная', href: '/' },
+          { title: 'Лыжи', href: '/skis' },
+          { title: 'Горные лыжи', href: '/skis-mountains' },
+        ]); 
       product('Товар', main());
       footer();
+
+      router.updatePageLinks();
       }, {
         leave(done) {
           console.log('\x1b[35m%s\x1b[0m', 'leave Закрываем Product');
@@ -62,13 +67,18 @@ export const initRouter = () => {
     .on("/favorite", async () => {
         console.log('\x1b[32m%s\x1b[0m', 'Favorite⭐ page Избранное');
         const goods = await loadData();
-        
         header();
+        breadcrumb('', main(), [
+          { title: 'Избранное⭐', href: '/favorite' },
+          { title: 'Борды', href: '/board' },
+          { title: 'Сноуборды', href: '/snowboard' },
+          { title: 'Горные сноуборды', href: '/winter-snowboard' },
+        ]);
         productList("Избранное⭐", loadFavorite(), main());
         footer();
 
         addFavorite(goods);
-
+        router.updatePageLinks();
       }, {
         leave(done) {
           console.log('\x1b[35m%s\x1b[0m', 'leave Закрываем Избранное');
