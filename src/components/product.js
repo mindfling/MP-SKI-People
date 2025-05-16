@@ -31,21 +31,16 @@ export const product = (title, parent) => {
             <div class="swiper-slide">
               <img class="product__slider-image" src="${LOCAL}/img/ski1.png" />
             </div>
-            <div class="swiper-slide">
+            <div style="display:none" class="swiper-slide">
               <img class="product__slider-image" src="${LOCAL}/img/ski2.png" />
             </div>
-            <div class="swiper-slide">
+            <div style="display:none" class="swiper-slide">
               <img class="product__slider-image" src="${LOCAL}/img/ski3.png" />
             </div>
-            <div class="swiper-slide">
+            <div style="display:none" class="swiper-slide">
               <img class="product__slider-image" src="${LOCAL}/img/ski4.png" />
             </div>
-            <div class="swiper-slide">
-              <img class="product__slider-image" src="${LOCAL}/img/ski5.png" />
-            </div>
-            <div class="swiper-slide">
-              <img class="product__slider-image" src="${LOCAL}/img/ski6.png" />
-            </div>
+
           </div>
           <button type="button" class="product__slider-arrow product__slider-arrow_prev">
             <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -76,18 +71,7 @@ export const product = (title, parent) => {
             <div class="swiper-slide slider-thumbs__item" class="swiper-slide">
               <img class="slider-thumbs__image" src="${LOCAL}/img/ski4.png" />
             </div>
-            <div class="swiper-slide slider-thumbs__item" class="swiper-slide">
-              <img class="slider-thumbs__image" src="${LOCAL}/img/ski5.png" />
-            </div>
-            <div class="swiper-slide slider-thumbs__item" class="swiper-slide">
-              <img class="slider-thumbs__image" src="${LOCAL}/img/ski6.png" />
-            </div>
-            <div class="swiper-slide slider-thumbs__item" class="swiper-slide">
-              <img class="slider-thumbs__image" src="${LOCAL}/img/ski7.png" />
-            </div>
-            <div class="swiper-slide slider-thumbs__item" class="swiper-slide">
-              <img class="slider-thumbs__image" src="${LOCAL}/img/ski8.png" />
-            </div>
+
           </div>
         </div>
       </div>

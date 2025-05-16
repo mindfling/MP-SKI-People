@@ -1,6 +1,11 @@
 .product {
   padding-bottom: 60px;
 
+  &__container {
+    display: flex;
+    flex-direction: column;;
+  }
+
   &__description {
     display: flex;
     flex-direction: column;
@@ -153,6 +158,10 @@
 
 
   .swiper-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
     @media (max-width: 768px) {
       display: none;
     }
