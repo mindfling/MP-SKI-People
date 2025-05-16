@@ -26,7 +26,11 @@ export const initRouter = () => {
 
         header();
         catalog('', main(), goods);
-        productList("Список товаров", goods, main());
+        breadcrumb('', main(), [
+          { title: 'Главная', href: '/' },
+          { title: 'Список все товаров', href: '/list' },
+        ]); 
+        productList('', "Список товаров", goods, main());
         footer();
 
         addFavorite(goods);
@@ -35,7 +39,9 @@ export const initRouter = () => {
       }, {
         leave(done) {
           console.log('\x1b[35m%s\x1b[0m', 'leave Главную страницу');
+
           catalog('remove');
+          breadcrumb('remove');
           productList('remove');
           done();
         },
@@ -46,11 +52,11 @@ export const initRouter = () => {
       console.log('\x1b[35m%s\x1b[0m', "Product Страница товара продукта");
       
       header();
-        breadcrumb('', main(), [
-          { title: 'Главная', href: '/' },
-          { title: 'Лыжи', href: '/skis' },
-          { title: 'Горные лыжи', href: '/skis-mountains' },
-        ]); 
+      breadcrumb('', main(), [
+        { title: 'Главная', href: '/' },
+        { title: 'Лыжи', href: '/skis' },
+        { title: 'Горные лыжи', href: '/skis-mountains' },
+      ]); 
       product('Товар', main());
       footer();
 
@@ -58,6 +64,7 @@ export const initRouter = () => {
       }, {
         leave(done) {
           console.log('\x1b[35m%s\x1b[0m', 'leave Закрываем Product');
+          breadcrumb('remove');
           product('remove');
           done();
         }
@@ -66,7 +73,7 @@ export const initRouter = () => {
 
     .on("/favorite", async () => {
         console.log('\x1b[32m%s\x1b[0m', 'Favorite⭐ page Избранное');
-        const goods = await loadData();
+        const goods = await loadFavorite();
         header();
         breadcrumb('', main(), [
           { title: 'Избранное⭐', href: '/favorite' },
@@ -74,7 +81,7 @@ export const initRouter = () => {
           { title: 'Сноуборды', href: '/snowboard' },
           { title: 'Горные сноуборды', href: '/winter-snowboard' },
         ]);
-        productList("Избранное⭐", loadFavorite(), main());
+        productList('', "Избранное⭐", goods, main());
         footer();
 
         addFavorite(goods);
@@ -82,6 +89,7 @@ export const initRouter = () => {
       }, {
         leave(done) {
           console.log('\x1b[35m%s\x1b[0m', 'leave Закрываем Избранное');
+          breadcrumb('remove');
           productList('remove');
           done();
         }
@@ -90,7 +98,7 @@ export const initRouter = () => {
 
     .on("/cart", async () => {
         console.log('\x1b[32m%s\x1b[0m', "Cart🛒 Корзина");
-        const data = await getData();
+        // const data = await getData();
         const cartList = loadCart();
         console.log('cartList: ', cartList);
       
@@ -109,22 +117,30 @@ export const initRouter = () => {
 
     .notFound(() => {
         console.log("🤖 page 404");
-        document.body.innerHTML = `
-          <main class="main">
+        
+        header();
+        const notFound = document.createElement('div');
+        notFound.className = 'not-found';
+        main().append(notFound);
+        notFound.innerHTML = `
             <div class="container page__notfound" style="display:flex;flex-direction:column;justify-content:center;align-items:center;gap:7px;padding:70px;">
               <h1 class="page__title" style="text-align:center;font-size:54px;font-family:cursive;">Title 404 PAGE</h1>
               <p class="page__text" style="text-align:center;">Жаль, похоже страницы по данному адресу не существует ;)</p>
               <a class="page__link" style="text-decoration:underline;" href="/">Вернуться на главную</a>
             </div>
-          </main>`;
-        // header();
-        // footer();
+        `;
+        footer();
+
+
+        router.updatePageLinks();
       }, {
         leave(done) {
-          console.log('\x1b[33m%s\x1b[0m', "Возвращаемся на Главную");
-          document.body.innerHTML = ``;
-          // header();
-          // footer();
+          console.log('\x1b[33m%s\x1b[0m', "Покидаем notFound");
+          // document.body.innerHTML = ``;
+          document.querySelector('.not-found').remove();
+          // header('remove');
+          // footer('remove');
+
           done();
         }
       }

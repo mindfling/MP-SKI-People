@@ -1,29 +1,28 @@
 // catalog.js Выбор КАТЕГОРИИ ТОВАРОВ
 import { layout } from "./layout";
 
+
 let rendered = false;
 
 export const catalog = (action, parent, data = []) => {
-  console.log('catalog component');
+  console.log('catalog component data', data);
 
   if (action === 'remove') {
     console.log('\x1b[35m%s\x1b[0m', 'catalog remove action');
-    // удалаяем .catalog
     document.querySelector('.catalog').remove();
     rendered = false;
+    return;
   }
 
   if (rendered) {
-    return document.querySelector('.catalog');
+    return '';
   }
 
-  // todo типы товаров draft
-  const types = data.map((item) => item.type);
 
   // собираем все категории types товаров
+  const types = data.map((item) => item.type);
   // const typeList = Array.from(new Set(types));
   const typeList = [...new Set(types)];
-  // console.log('catalog typeList: ', typeList);
 
   const el = document.createElement("div");
   el.classList.add("catalog");

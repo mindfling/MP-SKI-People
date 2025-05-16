@@ -5,21 +5,29 @@ import { LOCAL } from "../js/const";
 import { pagination } from "./pagination";
 import { loadFavorite } from "../js/localstorage";
 
+
 let rendered = false;
 
+export const productList = (action, title, data = [], parent) => {
+  console.log('productList action, title, data = [], parent: ', action, title, data, parent);
 
-export const productList = (title, data = [], parent) => {
-  console.log('title, data = [], parent: ', title, data, parent);
-
-  // if (rendered) {
-  //   return "";
-  // }
-  
-  if (title === 'remove') {
-    console.log('здесь очищаем список товаров', document.querySelector('.goods'))
+  if (action === 'remove') {
+    console.log('\x1b[35m%s\x1b[0m', 'productList goods remove action');
+    // удалаяем .goods
     document.querySelector('.goods').remove();
     rendered = false;
     return;
+  }
+  
+  // if (title === 'remove') {
+  //   console.log('здесь очищаем список товаров', document.querySelector('.goods'))
+  //   document.querySelector('.goods').remove();
+  //   rendered = false;
+  //   return;
+  // }
+
+  if (rendered) {
+    return document.querySelector('.goods');
   }
 
   const favoriteList = loadFavorite();

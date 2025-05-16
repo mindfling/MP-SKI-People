@@ -3,9 +3,15 @@ import { layout } from "./layout";
 
 let rendered = false; // ? а когда мы видим эту переменную ?
 
-export const footer = () => {
+export const footer = (action) => {
   console.log("footer componet");
-  
+
+  if (action === 'remove') {
+    console.log('REMOVE FOOTER');
+    rendered = false;
+    return;
+  }
+
   if (rendered) {
     return '';
   }

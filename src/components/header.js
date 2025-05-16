@@ -4,15 +4,22 @@ import { layout } from "./layout";
 let rendered = false;
 
 
-export const header = () => {
+export const header = (action) => {
   console.log("header componet");
   
+  if (action === 'remove') {
+    console.log('REMOVE HEADER');
+    rendered = false;
+    return;
+  }
+
   if (rendered) {
     return '';
   }
 
   const el = document.createElement("header");
   el.classList.add("header");
+  console.log('header el: ', el);
 
   const headerChild = `
     <div class="header__wrapper">
@@ -56,8 +63,8 @@ export const header = () => {
 
   el.append(layout(headerChild, "header__container"));
   
-  document.body.prepend(el);
-  // document.body.append(el);
+  // document.body.prepend(el);
+  document.body.append(el);
   
   rendered = true;
 
