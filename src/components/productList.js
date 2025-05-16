@@ -9,7 +9,7 @@ import { loadFavorite } from "../js/localstorage";
 let rendered = false;
 
 export const productList = (action, title, data = [], parent) => {
-  console.log('productList action, title, data = [], parent: ', action, title, data, parent);
+  // console.log('productList action, title, data = [], parent: ', action, title, data, parent);
 
   if (action === 'remove') {
     console.log('\x1b[35m%s\x1b[0m', 'productList goods remove action');

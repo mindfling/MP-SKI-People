@@ -23,13 +23,12 @@ export const initRouter = () => {
     .on("/", async () => {
         console.log('\x1b[32m%s\x1b[0m', 'Главная страница');
         const goods = await getData();
-
         header();
         catalog('', main(), goods);
-        breadcrumb('', main(), [
-          { title: 'Главная', href: '/' },
-          { title: 'Список все товаров', href: '/list' },
-        ]); 
+        // breadcrumb('', main(), [
+        //   { title: 'Главная', href: '/' },
+        //   { title: 'Список все товаров', href: '/list' },
+        // ]); 
         productList('', "Список товаров", goods, main());
         footer();
 
@@ -39,9 +38,8 @@ export const initRouter = () => {
       }, {
         leave(done) {
           console.log('\x1b[35m%s\x1b[0m', 'leave Главную страницу');
-
           catalog('remove');
-          breadcrumb('remove');
+          // breadcrumb('remove');
           productList('remove');
           done();
         },
@@ -50,14 +48,13 @@ export const initRouter = () => {
 
     .on("/product", async () => {
       console.log('\x1b[35m%s\x1b[0m', "Product Страница товара продукта");
-      
       header();
       breadcrumb('', main(), [
         { title: 'Главная', href: '/' },
         { title: 'Лыжи', href: '/skis' },
         { title: 'Горные лыжи', href: '/skis-mountains' },
       ]); 
-      product('Товар', main());
+      product('Товар Product', main());
       footer();
 
       router.updatePageLinks();
