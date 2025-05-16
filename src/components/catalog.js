@@ -7,7 +7,7 @@ export const catalog = (action, parent, data = []) => {
   console.log('catalog component');
 
   if (action === 'remove') {
-    console.log('\x1b[35m%s\x1b[0m', 'catalog remove');
+    console.log('\x1b[35m%s\x1b[0m', 'catalog remove action');
     // удалаяем .catalog
     document.querySelector('.catalog').remove();
     rendered = false;

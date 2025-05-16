@@ -97,7 +97,7 @@ export const initRouter = () => {
         header();
         cart(`Корзина товаров`, main(), cartList);
         footer();
-      
+        router.updatePageLinks();
       }, {
         leave(done) {
           console.log('\x1b[35m%s\x1b[0m', "leave Оставляем корзину");
