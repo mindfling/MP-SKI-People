@@ -29,7 +29,7 @@ export const initRouter = () => {
         //   { title: 'Главная', href: '/' },
         //   { title: 'Список все товаров', href: '/list' },
         // ]); 
-        productList('', "Список товаров", goods, main());
+        productList('', "Список товаров", main(),  goods);
         footer();
 
         addFavorite(goods);
@@ -78,7 +78,7 @@ export const initRouter = () => {
           { title: 'Сноуборды', href: '/snowboard' },
           { title: 'Горные сноуборды', href: '/winter-snowboard' },
         ]);
-        productList('', "Избранное⭐", goods, main());
+        productList('', "Избранное", main(), goods);
         footer();
 
         addFavorite(goods);
