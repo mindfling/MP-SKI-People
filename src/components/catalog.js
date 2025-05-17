@@ -5,7 +5,7 @@ import { layout } from "./layout";
 let rendered = false;
 
 export const catalog = (action, parent, data = []) => {
-  // console.log('catalog component data', data);
+  console.log('catalog data', data);
 
   if (action === 'remove') {
     console.log('\x1b[35m%s\x1b[0m', 'catalog remove action');
@@ -18,11 +18,29 @@ export const catalog = (action, parent, data = []) => {
     return '';
   }
 
-
+  if (!Array.isArray(data)) {
+    // е. мы передали не массив
+    console.log('мы передали не массив');
+    data = [];
+    console.log('ПУСТОЙ data: ', data);
+    // rendered = false;
+    // return;
+  }
+  
+  if ( data.length <= 0 ) {
+    // е. мы передали ПУСТОЙ массив
+    console.log('мы передали ПУСТОЙ массив');
+    console.log('ПУСТОЙ data: ', data);
+    // rendered = false;
+    // return;
+  }
+  
   // собираем все категории types товаров
-  const types = data.map((item) => item.type);
+  // const types = data.map((item) => item.type);
   // const typeList = Array.from(new Set(types));
-  const typeList = [...new Set(types)];
+  // const typeList = [...new Set(types)];
+  const typeList = Array.from(new Set( data.map(prod => prod.type) ));
+  console.log('typeList: ', typeList);
 
   const el = document.createElement("div");
   el.classList.add("catalog");
@@ -43,7 +61,7 @@ export const catalog = (action, parent, data = []) => {
             class="catalog__link catalog__link_active"
             href="#all"
             title="Отобразить ВСЕ категории товаров"
-          >ВСЕ</a>
+          >${ typeList.length ? 'BCE' : 'Нет категорий'}</a>
         </li>
       `)}
     </ul>
