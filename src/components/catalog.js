@@ -22,7 +22,6 @@ export const catalog = (action, parent, data = []) => {
     // е. мы передали не массив
     console.log('мы передали не массив');
     data = [];
-    console.log('ПУСТОЙ data: ', data);
     // rendered = false;
     // return;
   }
@@ -30,15 +29,11 @@ export const catalog = (action, parent, data = []) => {
   if ( data.length <= 0 ) {
     // е. мы передали ПУСТОЙ массив
     console.log('мы передали ПУСТОЙ массив');
-    console.log('ПУСТОЙ data: ', data);
-    // rendered = false;
-    // return;
+    rendered = false;
+    return;
   }
   
   // собираем все категории types товаров
-  // const types = data.map((item) => item.type);
-  // const typeList = Array.from(new Set(types));
-  // const typeList = [...new Set(types)];
   const typeList = Array.from(new Set( data.map(prod => prod.type) ));
   console.log('typeList: ', typeList);
 

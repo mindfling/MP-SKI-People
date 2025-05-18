@@ -10,6 +10,11 @@ let rendered = false;
 
 const render = (productsData, favoritesData = []) => {
   
+  if (!productsData) {
+    console.log('ПУСТОЙ data: ', productsData);
+    return '';
+  }
+  
   const favoriteIDs = favoritesData.map(prod => prod.id);
 
   // одна штука товара
@@ -78,14 +83,11 @@ export const productList = (action, title, parent, data = []) => {
     ${pagination(2, data.length)}
   ` : `
     <!-- Заголовок товары -->
-    <h2
-      class="page__title goods__titlea goods__title_favoritesa" 
-      style="font-family:cursive;font-size:54px;"
-    >
+    <!-- ТОВАРЫ -->
+    <h2 class="page__title" style="font-family:cursive;font-size:50px;">
       Сервер не отвечает
     </h2>
-    <!-- ТОВАРЫ -->
-    <img class="page__image" src="/img/errors/404.webp" alt="404 вешалка чiплячка тремпель">
+    <img class="page__image" src="/img/errors/404.webp" alt="404">
     <p class="page__text">Проверьте подключение к сети</p>
   `; // todo перенести пагинацию отдельно
 
@@ -99,7 +101,7 @@ export const productList = (action, title, parent, data = []) => {
   rendered = true;
 
 
-  // обработка нажатия на кнопку категорий товаров
+  // todo вынести вовне обработка нажатия на кнопку категорий товаров
   const catalogButton = document.querySelector('.catalog');
   // проверяем есть ли он
   if (catalogButton) {

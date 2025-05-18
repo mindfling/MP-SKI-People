@@ -27,7 +27,6 @@ export const initRouter = () => {
         catalog('', main(), goods);
         // breadcrumb('', main(), [
         //   { title: 'Главная', href: '/' },
-        //   { title: 'Список все товаров', href: '/list' },
         // ]); 
         productList('', "Список товаров", main(),  goods);
         footer();
