@@ -1,0 +1,11 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  &__image {
+    width: 63em;
+    filter: brightness(1.07);
+    filter: contrast(1.1);
+  }
+}
