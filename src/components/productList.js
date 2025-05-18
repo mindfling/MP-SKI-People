@@ -48,7 +48,6 @@ const render = (productsData, favoritesData = []) => {
   
   
 export const productList = (action, title, parent, data = []) => {
-  console.log('productList action, title, data = [], parent: ', action, title, data, parent);
 
   if (action === 'remove') {
     console.log('\x1b[35m%s\x1b[0m', 'ОЧИЩАЕМ productList goods remove action');
@@ -82,14 +81,15 @@ export const productList = (action, title, parent, data = []) => {
     <!-- ПАГИНАЦИЯ ВНИЗУ -->
     ${pagination(2, data.length)}
   ` : `
-    <!-- Заголовок товары -->
-    <!-- ТОВАРЫ -->
+    <!-- Заголовок -->
     <h2 class="page__title" style="font-family:cursive;font-size:50px;">
       Сервер не отвечает
     </h2>
     <img class="page__image" src="/img/errors/404.webp" alt="404">
     <p class="page__text">Проверьте подключение к сети</p>
-  `; // todo перенести пагинацию отдельно
+  `; 
+  // todo перенести пагинацию отдельно
+  // todo также заглушку 404 отдельно
 
 
   const el = document.createElement("section");
@@ -129,7 +129,7 @@ export const productList = (action, title, parent, data = []) => {
           //перестраиваем product list
           const refreshList = data.filter(item =>
             (item.type.toString().toLowerCase() === text.toString().toLowerCase()));
-          console.log('\x1b[36m%s\x1b[0m', 'Обновленный список товаров refreshList: ', refreshList);
+          console.log('%s типа \x1b[36m%s\x1b[0m:', `Обновленный список товаров`, `${text}`, refreshList);
           goodslist.innerHTML = render(refreshList);
           goodstitle.innerHTML = `${title} ${text}`;
         }

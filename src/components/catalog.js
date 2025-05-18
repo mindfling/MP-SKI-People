@@ -5,7 +5,6 @@ import { layout } from "./layout";
 let rendered = false;
 
 export const catalog = (action, parent, data = []) => {
-  console.log('catalog data', data);
 
   if (action === 'remove') {
     console.log('\x1b[35m%s\x1b[0m', 'catalog remove action');

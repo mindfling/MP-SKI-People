@@ -13,22 +13,17 @@ export const addFavorite = async (data) => {
       console.log('add favorite favoriteList: ', favoriteList);
       
       const target = e.target;
-      // console.log('target: ', target);
 
       const targetLikeButton = target.closest(".card__like-button");
-      // console.log('targetLikeButton: ', targetLikeButton);
 
       if (targetLikeButton) {
-        // console.log('addfavorite', e.target);
         targetLikeButton.classList.toggle('card__like-button_active');
 
-        // const id = Number(e.target.parentNode.parentNode.dataset.id);
         const id = Number(e.target.closest('.card__like-button').dataset.id);
         console.log('addfavorite id: ', id);
 
         // находим товар с id
         const item = data.find((item) => item.id === id);
-        // console.log('addfavorite item: ', item);
 
         if (favoriteList.length === 0) {
           // 1й раз сохраняем весь товар сразу
@@ -54,8 +49,6 @@ export const addFavorite = async (data) => {
           }
         }
       }
-
-      console.log('ready favorite favoriteList: ', favoriteList);
     });
   }
-};
+}
