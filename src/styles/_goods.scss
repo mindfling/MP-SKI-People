@@ -76,6 +76,18 @@
     border-radius: 16px;
     scale: 1;
     transition: all 400ms ease;
+    min-height: 120px;
+    
+    @media (min-width: 768px) {
+      min-height: 200px;
+    }
+    
+    @media (min-width: 1024px) {
+      min-height: 250px;
+    }
+    
+    // outline: 10px solid orange;
+    // outline-offset: -10px;
 
     &:hover {
       scale: 1.02;
