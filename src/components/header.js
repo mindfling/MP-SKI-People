@@ -1,4 +1,5 @@
 // * header.js
+import { search } from "../js/search";
 import { layout } from "./layout";
 
 let rendered = false;
@@ -19,7 +20,6 @@ export const header = (action) => {
 
   const el = document.createElement("header");
   el.classList.add("header");
-  console.log('header el: ', el);
 
   const headerChild = `
     <div class="header__wrapper">
@@ -27,7 +27,7 @@ export const header = (action) => {
         <img class="header__logo-image logo" src="/img/logo.svg" alt="Логотип SKI-People" />
       </a>
 
-      <form class="header__search" action="#">
+      <form class="header__search" title="Найти товар на сайте">
         <input class="header__search-input" type="search" name="search" placeholder="Поиск товара">
         <button class="header__search-button">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,11 +62,10 @@ export const header = (action) => {
   `;
 
   el.append(layout(headerChild, "header__container"));
-  
-  // document.body.prepend(el);
   document.body.append(el);
-  
   rendered = true;
+
+  search(); // init search form сразу же после добавления формы на страницу
 
   return el;
 }
