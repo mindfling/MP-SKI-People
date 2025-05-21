@@ -1,6 +1,6 @@
 // ? import ? для node > 18
 import express from 'express';
-import { APP_NAME, PORT } from './var.js'
+import { APP_NAME, counterFactory, DB_FILENAME, PORT } from './var.js'
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import url from 'node:url';
@@ -16,19 +16,14 @@ const __dirname = path.dirname(__filename);
 
 
 const app = express();
-let count = 0;
-const counter = () => console.log(`\nrequest count: ${++count}`);
 
-
-// обработка статических ссылок
-app.use('/', express.static('public'));
-app.use('/img', express.static('db/img'));
-
+const counter = counterFactory();
+// counter(reqname request count: ++count)
 
 
 // читаем данные из файла
 const loadData = async () => {
-  const filePath = path.join(__dirname, 'db/goods.json');
+  const filePath = path.join(__dirname, DB_FILENAME);
   const data = await readFile(filePath, 'utf8');
   const obj = JSON.parse(data);
   return obj;
@@ -41,11 +36,15 @@ const sendData = async () => {
 }
 
 
+// обработка статических ссылок
+app.use('/', express.static('public'));
+app.use('/img', express.static('db/img'));
+
+
 // обрабатываем запрос на список товаров goods
 app.get('/goods', async (req, res) => {
   try {
-    counter();
-    console.log('goods request');
+    counter('goods request');
     const updatedGoods = await sendData();
     // оформляем заголовки
     res.header("Access-Control-Allow-Origin", "*");
@@ -57,23 +56,21 @@ app.get('/goods', async (req, res) => {
 })
 
 
-// todo а что если клиенту отправить просто
+//  если клиенту отправить просто
 // СЫРУЮ строку из файла goods.json ?
 app.get('/allgoods', async (req, res) => {
-  counter();
-  console.log('allgoods request');
-  const filepath = path.join(__dirname, 'db/goods.json');
+  counter('allgoods');
+  const filepath = path.join(__dirname, DB_FILENAME);
   try {
     const data = await readFile(filepath, 'utf8');
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-Type", "application/json");
     res.send(data);
   } catch (e) {
+    console.error('Server Error 400');
     res.send(`Server read Error 400 ${e.message}`);
   }
 })
-
-
 
 
 // выдаем информацию о товаре номер
@@ -90,30 +87,50 @@ app.get("/page", async function(request, response){
     response.header("Access-Control-Allow-Origin", "*");
     response.json(product); // Отправляем json product
   } catch { 
+    console.error('Server Error 400');
     response.send('Server page Error 404');
   }
 })
 
 
 app.get('/product', async (req, res) => {
-  console.log(`\nrequest count: ${++count}`);
+  counter('product');
   try {
     const query = url.parse(req.url, true).query;
     const id = query?.id;
-    console.log('id: ', id);
+    // console.log('id: ', id);
     const products = await loadData();
-    const product = products.filter( item => item.id == id);
-    console.log('product: ', product[0].img);
+    const product = products.filter( item => item.id == id );
+    const prod = product[0];
+    console.log(`product ${prod.id}: \x1b[90m${prod.collection} ${prod.type} ${prod.manufacturer} ${prod.name}\x1b[0m`);
     const imgfile = product[0].img;
-
+    // console.log('imgfile: ', imgfile);
+    
     res.header("Access-Control-Allow-Origin", "*");
     const skifile = path.join(__dirname, `./db/img/${imgfile}`);
-    console.log('Отправляем файл: ', skifile);
+    console.log(`Отправляем файл:  \x1b[90m${skifile}\x1b[0m`);
     res.sendFile(skifile); // Отправиль файл
   } catch {
+    console.error('Server Error 400');
     res.send('Server product Error 404')
   }
 });
+
+let bufstr = '';
+
+app.get('/random', (req, res) => {
+  counter('random');
+  const r = Math.random();
+  const h = r.toString(16).substring(2, 10);
+  bufstr += `Random number ${parseInt(r * 10) + 1} => ${h} -> ${r} -> ${parseInt(h, 16)}\n`;
+  res.send(`<body style="background:#111;color:lawngreen;">
+    <pre>${bufstr}</pre>
+  </body>
+  `);
+  // console.log(`random number => ${r.toString(16).substring(2)} -> ${r} `)
+  console.log(bufstr);
+})
+
 
 // запускаем сервер
 app.listen(PORT, () => {
