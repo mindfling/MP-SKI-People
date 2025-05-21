@@ -117,18 +117,24 @@ app.get('/product', async (req, res) => {
 });
 
 let bufstr = '';
+const randoms = [];
 
 app.get('/random', (req, res) => {
   counter('random');
   const r = Math.random();
   const h = r.toString(16).substring(2, 10);
-  bufstr += `Random number ${parseInt(r * 10) + 1} => ${h} -> ${r} -> ${parseInt(h, 16)}\n`;
+  const s = `${parseInt(r * 10) + 1} => ${h} -> ${r} -> ${parseInt(h, 16)}`;
+  randoms.push(s);
+  bufstr += `Random number ${s}\n`;
+
   res.send(`<body style="background:#111;color:lawngreen;">
     <pre>${bufstr}</pre>
+    <HR>
+    <pre>${randoms.reduce((acc, curr) => acc + `Random number ${curr}\n`, '')}</pre>
   </body>
   `);
-  // console.log(`random number => ${r.toString(16).substring(2)} -> ${r} `)
-  console.log(bufstr);
+  
+  randoms.map(item => console.log(item));
 })
 
 
