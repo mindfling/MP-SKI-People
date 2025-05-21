@@ -6,7 +6,7 @@ let rendered = false;
 
 export const catalog = (action, parent, data = []) => {
 
-  if (action === 'remove') {
+  if (rendered && action === 'remove') {
     console.log('\x1b[35m%s\x1b[0m', 'catalog remove action');
     document.querySelector('.catalog').remove();
     rendered = false;
@@ -16,7 +16,7 @@ export const catalog = (action, parent, data = []) => {
   if (rendered) {
     return '';
   }
-
+  
   if (!Array.isArray(data)) {
     // е. мы передали не массив
     console.log('мы передали не массив');

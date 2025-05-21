@@ -119,7 +119,8 @@ export const productList = (action, title, parent, data = []) => {
         const goodslist = document.querySelector('.goods__list');
         const goodstitle = document.querySelector('.goods__title');
 
-        if (e.target.textContent.toString().toLowerCase() === 'все') {
+        if (e.target.textContent.toString().toLowerCase() === 'все' ||
+              e.target.textContent.toString().toLowerCase() === 'bce') {
           //перестраиваем BCE product
           console.log('отдаем все товары');
           goodslist.innerHTML = render(data);

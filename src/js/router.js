@@ -10,8 +10,10 @@ import { addFavorite } from "./addFavorite";
 import { loadCart, loadFavorite, localStorageLoad } from "./localstorage";
 import { product } from "../components/product";
 import { breadcrumb } from "../components/breadcrumb";
+import { notFound } from "../components/page404";
+import { search } from "./search";
 
-const router = new Navigo("/", { linksSelector: 'a[href^="/"]' });
+export const router = new Navigo("/", { linksSelector: 'a[href^="/"]' });
 
 export const initRouter = () => {
   console.log("init router 😃");
@@ -23,12 +25,13 @@ export const initRouter = () => {
     .on("/", async () => {
         console.log('\x1b[32m%s\x1b[0m', 'Главная страница');
         const goods = await getData();
+        console.log('goods: ', goods);
+        
         header();
         catalog('', main(), goods);
-        // breadcrumb('', main(), [
-        //   { title: 'Главная', href: '/' },
-        // ]); 
         productList('', "Список товаров", main(),  goods);
+
+        // search();
         footer();
 
         addFavorite(goods);
@@ -45,18 +48,41 @@ export const initRouter = () => {
       }
     )
 
-    .on("/product", async () => {
-      console.log('\x1b[35m%s\x1b[0m', "Product Страница товара продукта");
-      header();
-      breadcrumb('', main(), [
-        { title: 'Главная', href: '/' },
-        { title: 'Лыжи', href: '/skis' },
-        { title: 'Горные лыжи', href: '/skis-mountains' },
-      ]); 
-      product('Товар Product', main());
-      footer();
+    .on('/search', async (search) => {
+        console.log('\x1b[32m%s\x1b[0m', "on Search Поиск 💬 in /search");
+        
+        const searchQuery = search.params.query || search.params.search || search.params.q || search.params.s;
+        console.log('searchQuery: ', searchQuery);
 
-      router.updatePageLinks();
+        const data = await getData(searchQuery); // загружаем данные по параметрам поиска
+        console.log('router in search data: ', data);
+
+        header();
+        catalog('', main(), data);
+        productList('', `Найденные товары по запросу \"${searchQuery}\"`, main(), data);
+        footer();
+      }, {
+        leave(done) {
+          console.log('\x1b[35m%s\x1b[0m', 'leave Закрываем Поиск 💬');
+          catalog('remove');
+          productList('remove');
+          done();
+        }
+      }
+    )
+
+    .on("/product", async () => {
+        console.log('\x1b[35m%s\x1b[0m', "Product Страница товара продукта");
+        header();
+        breadcrumb('', main(), [
+          { title: 'Главная', href: '/' },
+          { title: 'Лыжи', href: '/skis' },
+          { title: 'Горные лыжи', href: '/skis-mountains' },
+        ]); 
+        product('Товар Product', main());
+        footer();
+
+        router.updatePageLinks();
       }, {
         leave(done) {
           console.log('\x1b[35m%s\x1b[0m', 'leave Закрываем Product');
@@ -78,6 +104,8 @@ export const initRouter = () => {
           { title: 'Горные сноуборды', href: '/winter-snowboard' },
         ]);
         productList('', "Избранное", main(), goods);
+        
+        // search();
         footer();
 
         addFavorite(goods);
@@ -115,25 +143,14 @@ export const initRouter = () => {
         console.log("🤖 page 404");
         
         header();
-        const notFound = document.createElement('div');
-        notFound.className = 'not-found';
-        main().append(notFound);
-        notFound.innerHTML = `
-            <div class="container page__notfound" style="display:flex;flex-direction:column;justify-content:center;align-items:center;gap:7px;padding:70px;">
-              <h1 class="page__title" style="text-align:center;font-size:54px;font-family:cursive;">Title 404 PAGE</h1>
-              <img class="page__image" src="/img/errors/404.webp" alt="404 вешалка чiплячка тремпель">
-              <p class="page__text" style="text-align:center;">Жаль, похоже страницы по данному адресу не существует ;)</p>
-              <a class="page__link" style="text-decoration:underline;" href="/">Вернуться на главную</a>
-            </div>
-        `;
+        main().append(notFound('Страница 404 не найдена'));
         footer();
 
-
+        // search();
         router.updatePageLinks();
       }, {
         leave(done) {
           console.log('\x1b[33m%s\x1b[0m', "Покидаем notFound");
-          // document.body.innerHTML = ``;
           document.querySelector('.not-found').remove();
           // header('remove');
           // footer('remove');
