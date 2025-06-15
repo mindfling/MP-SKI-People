@@ -5,17 +5,8 @@ import { initRouter } from './js/router';
 
 const init = () => {
   initRouter();
+  // const Hello = "World"
+  // console.log(`Hello`, Hello);
 }
 
 init();
-
-
-// const Hello = "World"
-// const init = () => {
-  // init my app
-  // console.log(`Hello`, Hello);
-//   initRouter();
-// }
-// initialization
-// init();
-
