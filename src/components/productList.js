@@ -85,7 +85,7 @@ export const productList = (action, title, parent, data = []) => {
     <h2 class="page__title" style="font-family:cursive;font-size:50px;">
       Сервер не отвечает
     </h2>
-    <img class="page__image" src="/img/errors/404.webp" alt="404">
+    <img class="page__image" style="width:426px" src="/img/errors/404-transparent.png" alt="404">
     <p class="page__text">Проверьте подключение к сети</p>
   `; 
   // todo перенести пагинацию отдельно

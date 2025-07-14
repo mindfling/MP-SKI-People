@@ -16,7 +16,7 @@ import { search } from "./search";
 export const router = new Navigo("/", { linksSelector: 'a[href^="/"]' });
 
 export const initRouter = () => {
-  // console.log("init router 😃");
+  console.log("init router 😃");
 
   const href = window.location.href;
   const url = document.URL;
